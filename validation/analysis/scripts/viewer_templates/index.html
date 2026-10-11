@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Global QC viewer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--bg:#fafafa;--panel:#fff;--ink:#1d1d1f;--muted:#6b6b70;--line:#d9d9de}
+*{box-sizing:border-box} body{margin:0;font:13px/1.4 system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{padding:10px 16px;border-bottom:1px solid var(--line);background:var(--panel);display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+header h1{font-size:15px;margin:0 12px 0 0} header a{color:#0b57d0}
+label{color:var(--muted);font-size:12px} select,input[type=number]{font:inherit;padding:3px 5px;border:1px solid var(--line);border-radius:4px;background:#fff}
+input[type=number]{width:78px} button{font:inherit;padding:4px 9px;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:pointer}
+button:hover{border-color:#999} .grp{display:flex;gap:6px;align-items:center}
+main{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,1fr);gap:12px;padding:12px 16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px}
+#plot{width:100%;height:520px;display:block} .pt{cursor:pointer} .pt:hover{stroke:#000;stroke-width:1.5}
+.sel{stroke:#000;stroke-width:2.2}
+#legend{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px;font-size:12px} .sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:-1px}
+table{border-collapse:collapse;width:100%;font-size:12px} td,th{padding:2px 6px;border-bottom:1px solid var(--line);text-align:right} th:first-child,td:first-child{text-align:left}
+.warn{color:#b3261e;font-weight:600} #thumb{width:100%;background:#000;border-radius:4px;min-height:120px;display:flex;align-items:center;justify-content:center;color:#aaa}
+#thumb img{max-width:100%;display:block} .kv{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:8px 0}
+.kv div:nth-child(odd){color:var(--muted)} .pass{color:#1b7f3b;font-weight:600} .fail{color:#b3261e;font-weight:600}
+.hint{color:var(--muted);font-size:12px;margin-top:6px} #tip{position:fixed;pointer-events:none;background:#222;color:#fff;padding:3px 6px;border-radius:4px;font-size:11px;display:none}
+@media (max-width:900px){main{grid-template-columns:1fr}}
+</style></head><body>
+<header>
+  <h1>Global QC viewer</h1>
+  <div class="grp"><label>Dataset</label><select id="ds"></select></div>
+  <div class="grp"><label>IoU &gt;</label><input id="tiou" type="number" step="0.005"><label>grad_p95 &lt;</label><input id="tgrad" type="number" step="0.001"></div>
+  <div class="grp"><label>Starting point</label><select id="mode"></select></div>
+  <div class="grp"><button id="bStart">Reset to start</button><button id="bChosen">Chosen</button></div>
+  <div class="grp"><label>Colour by</label><select id="colby"><option value="sample">brain</option><option value="be">bending energy</option><option value="grid">grid spacing</option></select></div>
+  <div class="grp"><label><input type="checkbox" id="zoom"> zoom to main cluster</label></div>
+  <div class="grp"><label>Labels CSV</label><input type="file" id="labfile" accept=".csv"></div>
+  <div class="grp"><button id="bCopy">Copy thresholds</button><a href="blind.html">Blinded rating →</a></div>
+</header>
+<main>
+  <section class="card">
+    <svg id="plot"></svg>
+    <div id="legend"></div>
+    <div class="hint">Dashed grey = untuned starting point · solid black = chosen thresholds (if any) · orange = your current thresholds (drag the orange lines or type values). Filled = passes current thresholds, hollow = fails. With a labels CSV from the blinded rating loaded, rated registrations get a ring: green = rated pass, red = rated fail, grey = unsure. Click a point to see its registration; arrow keys ← → step through that brain's registrations ordered by grad_p95.</div>
+  </section>
+  <section>
+    <div class="card"><div id="counts"></div></div>
+    <div class="card" style="margin-top:12px">
+      <div id="thumb">click a point</div>
+      <div class="kv" id="meta"></div>
+      <div class="hint">Three coronal slices (35/50/65 % anterior→posterior) of brainreg's downsampled image with this registration's atlas boundaries (cyan).</div>
+    </div>
+  </section>
+</main>
+<div id="tip"></div>
+<script src="data.js"></script>
+<script>
+const D = window.QC_DATA, PAL = ["#0072B2","#E69F00","#009E73","#D55E00","#CC79A7","#56B4E9","#000000","#8C8C8C"];
+const MODE_NAMES = {start:"median ± 3·MAD, set on raw (recommended)", raw_anchored:"Tukey 1.5·IQR, set on raw", pooled:"Tukey, pooled raw + preprocessed", separate:"Tukey, separate raw / preprocessed"};
+const LABCOL = {pass:"#1b7f3b", fail:"#b3261e", unsure:"#8c8c8c"};
+const $ = id => document.getElementById(id), svg = $("plot"), NS = "http://www.w3.org/2000/svg";
+let key, rows, cur = [0,0], sel = null, xs, ys, dom, labels = {};
+const keys = Object.keys(D.thresholds);
+const T = () => D.thresholds[key];
+const dflt = () => T().defaults[$("mode").value] || T().defaults.start;
+keys.forEach(k => { const o = document.createElement("option"); o.value = k; o.textContent = D.thresholds[k].label; $("ds").appendChild(o); });
+const modes = Object.keys(D.thresholds[keys[0]].defaults);
+modes.forEach(m => { const o = document.createElement("option"); o.value = m; o.textContent = MODE_NAMES[m] || m; $("mode").appendChild(o); });
+function pass(r, t){ return r.iou > t[0] && r.grad < t[1]; }
+function el(n, a, p){ const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); (p||svg).appendChild(e); return e; }
+function cats(){ const f = $("colby").value; const u = [...new Set(rows.map(r => r[f]))].sort((a,b)=> (typeof a === "number") ? a-b : String(a).localeCompare(String(b))); return [f, u]; }
+function setCur(t){ cur = t.slice(); $("tiou").value = cur[0]; $("tgrad").value = cur[1]; }
+function load(k){
+  key = k; rows = D.records.filter(r => r.key === k);
+  $("bChosen").style.display = T().chosen ? "" : "none";
+  setCur(dflt()); sel = null; showSel(); draw();
+}
+function domain(){
+  const iou = rows.map(r=>r.iou), g = rows.map(r=>r.grad);
+  const q = (a,p) => { const s = a.slice().sort((x,y)=>x-y); return s[Math.floor(p*(s.length-1))]; };
+  let x0 = Math.min(...iou), x1 = Math.max(...iou), y0 = Math.min(...g), y1 = Math.max(...g);
+  if ($("zoom").checked){ const c = T().chosen || dflt(); x0 = Math.min(q(iou,0.1), c[0], dflt()[0] > q(iou,0.1) ? dflt()[0] : x0); y1 = Math.max(q(g,0.9), c[1]*1.05, dflt()[1]*1.05); }
+  const px = (x1-x0)*0.04, py = (y1-y0)*0.05; return [x0-px, x1+px, y0-py, y1+py];
+}
+function draw(){
+  svg.innerHTML = ""; const W = svg.clientWidth, Hh = svg.clientHeight, m = {l:58, r:14, t:12, b:40};
+  dom = domain(); const [x0,x1,y0,y1] = dom;
+  xs = v => m.l + (v-x0)/(x1-x0)*(W-m.l-m.r); ys = v => Hh-m.b - (v-y0)/(y1-y0)*(Hh-m.t-m.b);
+  const ax = el("g", {});
+  for (let i=0;i<=5;i++){ const v = x0+(x1-x0)*i/5, X = xs(v); el("line",{x1:X,x2:X,y1:m.t,y2:Hh-m.b,stroke:"#eee"},ax); el("text",{x:X,y:Hh-m.b+14,"text-anchor":"middle","font-size":11,fill:"#555"},ax).textContent = v.toFixed(3);
+    const w = y0+(y1-y0)*i/5, Y = ys(w); el("line",{x1:m.l,x2:W-m.r,y1:Y,y2:Y,stroke:"#eee"},ax); el("text",{x:m.l-6,y:Y+4,"text-anchor":"end","font-size":11,fill:"#555"},ax).textContent = w.toFixed(3); }
+  el("text",{x:(W+m.l)/2,y:Hh-6,"text-anchor":"middle","font-size":12},ax).textContent = "tissue IoU (higher = better)";
+  el("text",{x:14,y:Hh/2,"text-anchor":"middle","font-size":12,transform:`rotate(-90 14 ${Hh/2})`},ax).textContent = "grad_p95 (lower = smoother)";
+  const vline = (x,c,d,w) => el("line",{x1:xs(x),x2:xs(x),y1:m.t,y2:Hh-m.b,stroke:c,"stroke-dasharray":d,"stroke-width":w});
+  const hline = (y,c,d,w) => el("line",{x1:m.l,x2:W-m.r,y1:ys(y),y2:ys(y),stroke:c,"stroke-dasharray":d,"stroke-width":w});
+  vline(dflt()[0],"#8c8c8c","5 4",1.2); hline(dflt()[1],"#8c8c8c","5 4",1.2);
+  if (T().chosen){ vline(T().chosen[0],"#000","",1.3); hline(T().chosen[1],"#000","",1.3); }
+  const [f,u] = cats(); const col = v => PAL[u.indexOf(v) % PAL.length];
+  rows.forEach(r => { const ok = pass(r,cur), c = col(r[f]), lab = labels[r.id];
+    if (lab) el("circle",{cx:xs(r.iou),cy:ys(r.grad),r:7.5,fill:"none",stroke:LABCOL[lab]||"#8c8c8c","stroke-width":2.2});
+    const p = el("circle",{cx:xs(r.iou),cy:ys(r.grad),r:4.2,fill:ok?c:"#fff",stroke:c,"stroke-width":1.3,class:"pt"+(sel===r?" sel":"")});
+    p.addEventListener("click",()=>{ sel = r; showSel(); draw(); });
+    p.addEventListener("mousemove",e=>{ const tp=$("tip"); tp.style.display="block"; tp.style.left=(e.clientX+12)+"px"; tp.style.top=(e.clientY+10)+"px"; tp.textContent=`${r.sample} · BE ${r.be} · grid ${r.grid} · IoU ${r.iou.toFixed(3)} · grad ${r.grad.toFixed(4)}${lab?" · rated "+lab:""}`; });
+    p.addEventListener("mouseleave",()=>$("tip").style.display="none"); });
+  const cv = vline(cur[0],"#D55E00","",2.2), ch = hline(cur[1],"#D55E00","",2.2);
+  [cv,ch].forEach(l=>{ l.style.cursor = l===cv ? "ew-resize" : "ns-resize"; l.setAttribute("stroke-width",4); l.setAttribute("stroke-opacity",0.8); });
+  drag(cv, e => { cur[0] = +(x0 + (e.offsetX-m.l)/(W-m.l-m.r)*(x1-x0)).toFixed(3); $("tiou").value = cur[0]; });
+  drag(ch, e => { cur[1] = +(y0 + (Hh-m.b-e.offsetY)/(Hh-m.t-m.b)*(y1-y0)).toFixed(4); $("tgrad").value = cur[1]; });
+  $("legend").innerHTML = u.map(v=>`<span><span class="sw" style="background:${col(v)}"></span>${f==="sample"?"":f+" "}${v}</span>`).join("");
+  counts();
+}
+function drag(line, move){ line.addEventListener("mousedown", ev => { ev.preventDefault();
+  const mm = e => { move(e); draw(); }, up = () => { svg.removeEventListener("mousemove", mm); window.removeEventListener("mouseup", up); };
+  svg.addEventListener("mousemove", mm); window.addEventListener("mouseup", up); }); }
+function counts(){
+  const t = T(), brains = [...new Set(rows.map(r=>r.sample))].sort(), hasC = !!t.chosen;
+  const n = (rs, th) => rs.filter(r=>pass(r,th)).length;
+  let h = `<b>${t.label}</b> — ${rows.length} registrations<br>${t.note ? `<div class="hint" style="color:#8a5a00">${t.note}</div>` : ""}<table><tr><th>brain</th><th>current</th>${hasC?"<th>chosen</th>":""}<th>start</th></tr>`;
+  brains.forEach(b=>{ const rs = rows.filter(r=>r.sample===b), c = n(rs,cur); h += `<tr><td>${b}</td><td class="${c<10?'warn':''}">${c}</td>${hasC?`<td>${n(rs,t.chosen)}</td>`:""}<td>${n(rs,dflt())}</td></tr>`; });
+  h += `<tr><td><b>all</b></td><td><b>${n(rows,cur)}</b></td>${hasC?`<td><b>${n(rows,t.chosen)}</b></td>`:""}<td><b>${n(rows,dflt())}</b></td></tr></table>`;
+  const rated = rows.filter(r=>labels[r.id]==="pass"||labels[r.id]==="fail");
+  if (rated.length){ const tp = rated.filter(r=>labels[r.id]==="pass"&&pass(r,cur)).length, np = rated.filter(r=>labels[r.id]==="pass").length;
+    const tn = rated.filter(r=>labels[r.id]==="fail"&&!pass(r,cur)).length, nf = rated.length-np;
+    h += `<div class="hint"><b>Against your ratings</b> (${rated.length} rated pass/fail): rated-pass kept ${tp}/${np}, rated-fail removed ${tn}/${nf}.</div>`; }
+  h += `<div class="hint">current: IoU &gt; ${cur[0]}, grad_p95 &lt; ${cur[1]}${hasC?` · chosen: ${t.chosen[0]} / ${t.chosen[1]}`:""} · start (${$("mode").selectedOptions[0].text}): ${dflt()[0]} / ${dflt()[1]}. Red = fewer than 10 registrations retained for that brain.</div>`;
+  $("counts").innerHTML = h;
+}
+function showSel(){
+  if (!sel){ $("thumb").innerHTML = "click a point"; $("meta").innerHTML = ""; return; }
+  const t = T(), s = th => pass(sel,th) ? '<span class="pass">pass</span>' : '<span class="fail">fail</span>';
+  $("thumb").innerHTML = sel.has_thumb ? `<img src="${sel.thumb}" alt="registration">` : "image not available yet (rerun 13_build_qc_viewer.py once the registrations exist)";
+  $("meta").innerHTML = `<div>brain</div><div>${sel.sample}</div><div>run</div><div>${sel.run}</div><div>bending energy</div><div>${sel.be}</div>
+    <div>grid spacing</div><div>${sel.grid}</div><div>IoU</div><div>${sel.iou.toFixed(4)}</div><div>grad_p95</div><div>${sel.grad.toFixed(4)}</div>
+    <div>current</div><div>${s(cur)}</div>${t.chosen?`<div>chosen</div><div>${s(t.chosen)}</div>`:""}<div>start</div><div>${s(dflt())}</div>
+    ${labels[sel.id]?`<div>your rating</div><div>${labels[sel.id]}</div>`:""}`;
+}
+function parseCSV(text){
+  const out = [], lines = text.replace(/\r/g,"").split("\n").filter(l=>l.length);
+  const split = l => { const a = []; let c = "", q = false; for (const ch of l){ if (ch === '"') q = !q; else if (ch === "," && !q){ a.push(c); c = ""; } else c += ch; } a.push(c); return a; };
+  const hd = split(lines[0]); lines.slice(1).forEach(l => { const v = split(l), o = {}; hd.forEach((h,i)=>o[h]=v[i]); out.push(o); }); return out;
+}
+$("labfile").onchange = e => { const f = e.target.files[0]; if (!f) return; const rd = new FileReader();
+  rd.onload = () => { labels = {}; parseCSV(rd.result).forEach(r => { if (r.id && r.label) labels[r.id] = r.label; }); draw(); showSel(); }; rd.readAsText(f); };
+document.addEventListener("keydown", e => { if (!sel || !["ArrowLeft","ArrowRight"].includes(e.key)) return;
+  const rs = rows.filter(r=>r.sample===sel.sample).sort((a,b)=>a.grad-b.grad), i = rs.indexOf(sel);
+  sel = rs[Math.max(0, Math.min(rs.length-1, i + (e.key==="ArrowRight"?1:-1)))]; showSel(); draw(); });
+$("ds").onchange = e => load(e.target.value); $("colby").onchange = draw; $("mode").onchange = () => { draw(); showSel(); }; $("zoom").onchange = draw;
+$("tiou").oninput = e => { cur[0] = +e.target.value; draw(); showSel(); }; $("tgrad").oninput = e => { cur[1] = +e.target.value; draw(); showSel(); };
+$("bChosen").onclick = () => { if (T().chosen){ setCur(T().chosen); draw(); showSel(); } };
+$("bStart").onclick = () => { setCur(dflt()); draw(); showSel(); };
+$("bCopy").onclick = () => { const s = `${T().label}: IoU > ${cur[0]}, grad_p95 < ${cur[1]}`; navigator.clipboard && navigator.clipboard.writeText(s); $("bCopy").textContent = "copied"; setTimeout(()=>$("bCopy").textContent="Copy thresholds",1200); };
+window.addEventListener("resize", draw);
+load(keys.includes("aMAP_raw") ? "aMAP_raw" : keys[0]); $("ds").value = key;
+</script></body></html>

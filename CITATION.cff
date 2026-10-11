@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the article below."
+title: "Uncertainty-aware atlas registration for whole-brain LSFM: code"
+authors:
+  - family-names: Zaman
+    given-names: Ishrat
+  # TODO: add co-authors and ORCIDs
+repository-code: "https://github.com/BioimageAnalysisCoreWEHI/uncertainty_aware_brain_analysis"
+license: BSD-3-Clause   # TODO: confirm licence with the lab / institute
+preferred-citation:
+  type: article
+  title: "Counting cells with confidence: uncertainty-aware atlas registration for whole-brain LSFM"
+  authors:
+    - family-names: Zaman
+      given-names: Ishrat
+  journal: "Journal of Microscopy"
+  year: 2026   # TODO: update on acceptance (volume, DOI)

@@ -1,0 +1,29 @@
+# HPC environment: registration sweep, global QC, SSIM ranking, region consensus, Cellpose.
+# Versions are those installed in the environment the analyses ran in (full list: brainreg_hpc_full_package_list.txt).
+# brainreg 1.0.10 (NiftyReg backend), as recorded in the registration logs and stated in the Methods.
+name: brainreg_hpc
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12.2
+  - numpy=1.26.4
+  - scipy=1.14.1
+  - pandas=2.2.3
+  - scikit-image=0.24.0
+  - simpleitk=2.5.0
+  - tifffile=2024.9.20
+  - imagecodecs=2024.6.1
+  - nibabel=5.3.2
+  - dask-image=2024.5.3
+  - matplotlib=3.10.3
+  - pyyaml=6.0.2
+  - zarr=2.18.3
+  - pip
+  - pip:
+      - brainreg==1.0.10
+      - brainglobe-atlasapi==2.0.10
+      - brainglobe-utils==0.6.2
+      - brainglobe-space==1.0.2
+      - cellpose==2.2.3
+      - torch==2.7.1

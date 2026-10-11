@@ -1,0 +1,31 @@
+# local configuration
+config/local_paths.yaml
+
+# results and caches written by the scripts
+results/
+**/results/
+validation/analysis/cache/
+validation/analysis/figures/
+validation/analysis/source_data/
+validation/analysis/logs/
+*.log
+
+# large data
+*.tif
+*.tiff
+*.nii
+*.nii.gz
+*.npz
+*.zarr/
+
+# python / OS
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# docs figures are kept
+!docs/*.png

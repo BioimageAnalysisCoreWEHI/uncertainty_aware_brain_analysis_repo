@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Blinded QC rating</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--bg:#fafafa;--panel:#fff;--ink:#1d1d1f;--muted:#6b6b70;--line:#d9d9de;--pass:#1b7f3b;--fail:#b3261e;--uns:#8c8c8c;--sug:#6a3d9a}
+*{box-sizing:border-box} body{margin:0;font:13px/1.45 system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{padding:10px 16px;border-bottom:1px solid var(--line);background:var(--panel);display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+header h1{font-size:15px;margin:0 12px 0 0} a{color:#0b57d0}
+.wrap{max-width:1180px;margin:0 auto;padding:14px 16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px;margin-bottom:12px}
+label{color:var(--muted);font-size:12px} select,input[type=number],input[type=text]{font:inherit;padding:3px 6px;border:1px solid var(--line);border-radius:4px;background:#fff}
+input[type=number]{width:90px} button{font:inherit;padding:5px 11px;border:1px solid var(--line);border-radius:4px;background:#fff;cursor:pointer}
+button:hover{border-color:#999} button:disabled{opacity:.45;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+#img{background:#000;border-radius:4px;min-height:220px;display:flex;align-items:center;justify-content:center;color:#aaa}
+#img img{max-width:100%;display:block}
+.big{font-size:15px;padding:9px 22px;font-weight:600} .bp{border-color:var(--pass);color:var(--pass)} .bf{border-color:var(--fail);color:var(--fail)} .bu{color:var(--uns)}
+.on.bp{background:var(--pass);color:#fff} .on.bf{background:var(--fail);color:#fff} .on.bu{background:var(--uns);color:#fff}
+.hint{color:var(--muted);font-size:12px} .modes label{color:var(--ink);font-size:13px;margin-right:10px}
+#bar{height:6px;background:#eee;border-radius:3px;overflow:hidden;margin:8px 0} #bar div{height:100%;background:#0b57d0;width:0}
+table{border-collapse:collapse;font-size:12px} td,th{padding:3px 8px;border-bottom:1px solid var(--line);text-align:right} th:first-child,td:first-child{text-align:left}
+#plot{width:100%;height:460px;display:block} .hidden{display:none}
+kbd{border:1px solid var(--line);border-bottom-width:2px;border-radius:3px;padding:0 4px;font-size:11px;background:#fff;color:#333;font-weight:400}
+</style></head><body>
+<header><h1>Blinded QC rating</h1><span class="hint">Rate registrations from the image alone — metrics, parameters and brain are hidden until you reveal.</span><a href="index.html">← QC viewer</a></header>
+<div class="wrap">
+
+<section class="card" id="setup">
+  <div class="row">
+    <div><label>Dataset</label><br><select id="ds"></select></div>
+    <div><label>Rater</label><br><input id="rater" type="text" placeholder="initials" size="10"></div>
+    <div><label>Registrations to rate</label><br><input id="n" type="number" min="10" step="10" value="100"></div>
+    <div><label>Seed</label><br><input id="seed" type="number" step="1"></div>
+    <div><label><input type="checkbox" id="strat" checked> balance across brains</label><br>
+      <label><input type="checkbox" id="enrich" checked> half from borderline / likely failures</label></div>
+    <div><button id="bStart" class="big">Start / resume</button></div>
+  </div>
+  <p class="hint">Before starting, write down what counts as a failure. Suggested failure modes: (1) the atlas outline does not sit on the tissue; (2) extreme warping or very wobbly boundaries; (3) under-deformed — the outline fits but internal boundaries are offset; (4) other. Rate each registration as pass, fail or unsure. With "half from borderline / likely failures" (recommended), half the sample comes from registrations that fail the starting point or sit near it (lowest IoU / highest grad_p95 quartile of the passing ones), so that enough failures are seen to place a threshold; the metrics only choose the sample and are never shown. Two raters should use the same seed and settings so that they rate the same registrations. Progress is kept in this browser; export the CSV when you finish.</p>
+</section>
+
+<section class="card hidden" id="rate">
+  <div class="row"><b id="prog"></b><span class="hint" id="state"></span></div>
+  <div id="bar"><div></div></div>
+  <div id="img"></div>
+  <div class="row" style="margin-top:10px">
+    <button class="big bp" id="bP">Pass <kbd>P</kbd></button>
+    <button class="big bf" id="bF">Fail <kbd>F</kbd></button>
+    <button class="big bu" id="bU">Unsure <kbd>U</kbd></button>
+    <button id="bBack">← Back <kbd>B</kbd></button>
+    <button id="bNext">Skip → <kbd>N</kbd></button>
+  </div>
+  <div class="modes row" style="margin-top:8px"><span class="hint">Failure mode (optional, for fail / unsure):</span>
+    <label><input type="checkbox" value="outline"> 1 outline off tissue</label>
+    <label><input type="checkbox" value="warping"> 2 extreme warping / wobbly</label>
+    <label><input type="checkbox" value="under_deformed"> 3 under-deformed</label>
+    <label><input type="checkbox" value="other"> 4 other</label></div>
+  <div class="row" style="margin-top:12px"><button id="bExport">Export CSV</button><button id="bReveal">Finish &amp; reveal</button><button id="bSetup">Back to setup</button></div>
+</section>
+
+<section class="card hidden" id="reveal">
+  <div class="row"><b>Results</b><span class="hint" id="rsum"></span></div>
+  <svg id="plot"></svg>
+  <p class="hint">Green = rated pass, red = rated fail, grey = unsure. Dashed grey = starting point; purple = thresholds suggested by your ratings: the pair that best separates rated-pass from rated-fail registrations (maximum balanced accuracy; ties go to the most lenient IoU, then the most lenient grad_p95). Treat it as a proposal: check the registrations near it in the QC viewer (load this CSV there) and report the thresholds with the numbers below. For a reproducible record, use 16_thresholds_from_labels.py (also computes agreement between raters).</p>
+  <div id="rtab"></div>
+  <div class="row" style="margin-top:10px"><button id="bExport2">Export CSV</button><button id="bBackRate">Back to rating</button></div>
+</section>
+</div>
+<script src="data.js"></script>
+<script>
+const D = window.QC_DATA, $ = id => document.getElementById(id), NS = "http://www.w3.org/2000/svg";
+let S = null, key, pool, byId;
+const keys = Object.keys(D.thresholds).filter(k => D.records.some(r => r.key === k && r.has_thumb));
+keys.forEach(k => { const o = document.createElement("option"); o.value = k; o.textContent = D.thresholds[k].label; $("ds").appendChild(o); });
+$("seed").value = Math.floor(Math.random()*1e6);
+function store(){ try { localStorage.setItem(S.sk, JSON.stringify(S)); } catch(e){} }
+function restore(sk){ try { const s = localStorage.getItem(sk); return s ? JSON.parse(s) : null; } catch(e){ return null; } }
+function rng(a){ return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function shuffle(a, r){ for (let i = a.length-1; i > 0; i--){ const j = Math.floor(r()*(i+1)); [a[i],a[j]] = [a[j],a[i]]; } return a; }
+function draw_(recs, n, r, strat){
+  let ids;
+  if (strat){ const g = {}; recs.forEach(x => (g[x.sample] = g[x.sample] || []).push(x.id));
+    const lists = Object.keys(g).sort().map(k => shuffle(g[k], r)); ids = [];
+    for (let i = 0; ids.length < recs.length; i++) lists.forEach(l => { if (i < l.length) ids.push(l[i]); });
+  } else ids = shuffle(recs.map(x => x.id), r);
+  return ids.slice(0, Math.max(0, Math.min(n, ids.length)));
+}
+// borderline / likely failures: fail the starting point, or pass it but lie in the lowest IoU / highest grad_p95
+// quartile of the passing registrations. Metrics only choose the sample; the rater never sees them.
+function borderline(recs, st){
+  const ok = recs.filter(x => x.iou > st[0] && x.grad < st[1]);
+  const q = (a, p) => { const s = a.slice().sort((u,v)=>u-v); return s[Math.floor(p*(s.length-1))]; };
+  const qi = q(ok.map(x=>x.iou), 0.25), qg = q(ok.map(x=>x.grad), 0.75);
+  return new Set(recs.filter(x => !(x.iou > st[0] && x.grad < st[1]) || x.iou <= qi || x.grad >= qg).map(x => x.id));
+}
+function sampleOrder(recs, n, seed, strat, enrich, st){
+  const r = rng(seed), stratum = {};
+  let ids;
+  if (enrich){ const b = borderline(recs, st), A = recs.filter(x => b.has(x.id)), B = recs.filter(x => !b.has(x.id));
+    const a = draw_(A, Math.ceil(n/2), r, strat), c = draw_(B, n - a.length, r, strat);
+    a.forEach(id => stratum[id] = "borderline"); c.forEach(id => stratum[id] = "other"); ids = a.concat(c);
+  } else { ids = draw_(recs, n, r, strat); ids.forEach(id => stratum[id] = "random"); }
+  return [shuffle(ids, r), stratum];
+}
+$("bStart").onclick = () => {
+  key = $("ds").value; pool = D.records.filter(r => r.key === key && r.has_thumb); byId = Object.fromEntries(pool.map(r => [r.id, r]));
+  const rater = $("rater").value.trim() || "anon", n = +$("n").value, seed = +$("seed").value, strat = $("strat").checked, enrich = $("enrich").checked;
+  const sk = `qcblind|${key}|${rater}|${seed}|${n}|${strat}|${enrich}`;
+  S = restore(sk);
+  if (!S){ const [order, stratum] = sampleOrder(pool, n, seed, strat, enrich, D.thresholds[key].defaults.start);
+    S = {sk, key, rater, seed, n, strat, enrich, order, stratum, ratings: {}, pos: 0}; }
+  S.order = S.order.filter(id => byId[id]);
+  show("rate"); render();
+};
+function show(id){ ["setup","rate","reveal"].forEach(s => $(s).classList.toggle("hidden", s !== id)); }
+function render(){
+  const id = S.order[S.pos], r = byId[id], done = Object.keys(S.ratings).length, rt = S.ratings[id];
+  $("prog").textContent = `${S.pos+1} / ${S.order.length}`;
+  $("state").textContent = `${done} rated · rater ${S.rater} · seed ${S.seed}` + (rt ? ` · this one: ${rt.label}` : "");
+  $("bar").firstElementChild.style.width = (100*done/S.order.length) + "%";
+  $("img").innerHTML = `<img src="${r.thumb}" alt="registration to rate">`;
+  document.querySelectorAll(".modes input").forEach(c => c.checked = !!(rt && rt.modes.includes(c.value)));
+  $("bP").classList.toggle("on", !!rt && rt.label === "pass"); $("bF").classList.toggle("on", !!rt && rt.label === "fail"); $("bU").classList.toggle("on", !!rt && rt.label === "unsure");
+  $("bBack").disabled = S.pos === 0;
+}
+function rate(label){
+  const modes = [...document.querySelectorAll(".modes input:checked")].map(c => c.value);
+  S.ratings[S.order[S.pos]] = {label, modes: label === "pass" ? [] : modes, t: new Date().toISOString()};
+  if (S.pos < S.order.length-1) S.pos++; store(); render();
+  if (Object.keys(S.ratings).length === S.order.length) $("state").textContent += " · all rated — finish & reveal";
+}
+$("bP").onclick = () => rate("pass"); $("bF").onclick = () => rate("fail"); $("bU").onclick = () => rate("unsure");
+$("bBack").onclick = () => { if (S.pos > 0){ S.pos--; store(); render(); } };
+$("bNext").onclick = () => { if (S.pos < S.order.length-1){ S.pos++; store(); render(); } };
+$("bSetup").onclick = () => show("setup"); $("bBackRate").onclick = () => { show("rate"); render(); };
+document.addEventListener("keydown", e => {
+  if ($("rate").classList.contains("hidden") || e.target.tagName === "INPUT" && e.target.type !== "checkbox") return;
+  const k = e.key.toLowerCase();
+  if (k === "p") rate("pass"); else if (k === "f") rate("fail"); else if (k === "u") rate("unsure");
+  else if (k === "b" || e.key === "ArrowLeft") $("bBack").click(); else if (k === "n" || e.key === "ArrowRight") $("bNext").click();
+  else if (["1","2","3","4"].includes(k)){ const c = document.querySelectorAll(".modes input")[+k-1]; c.checked = !c.checked; }
+});
+function csv(){
+  const hd = ["rater","id","key","dataset","variant","sample","run","order","label","failure_modes","rated_at","seed","n_sample","stratified","sample_stratum","iou","grad_p95","bending_energy","grid"];
+  const q = v => /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g,'""')}"` : v;
+  const lines = [hd.join(",")];
+  S.order.forEach((id, i) => { const rt = S.ratings[id]; if (!rt) return; const r = byId[id];
+    lines.push([S.rater, id, r.key, r.dataset, r.variant, r.sample, r.run, i+1, rt.label, rt.modes.join(";"), rt.t, S.seed, S.order.length, S.strat, (S.stratum||{})[id]||"random", r.iou, r.grad, r.be, r.grid].map(q).join(",")); });
+  const b = new Blob([lines.join("\n")+"\n"], {type:"text/csv"}), a = document.createElement("a");
+  a.href = URL.createObjectURL(b); a.download = `qc_ratings_${S.key}_${S.rater}_seed${S.seed}.csv`; a.click(); URL.revokeObjectURL(a.href);
+}
+$("bExport").onclick = csv; $("bExport2").onclick = csv;
+// ---- thresholds suggested by the ratings (same rule as 16_thresholds_from_labels.py) ----
+function suggest(P, F){
+  if (!P.length || !F.length) return null;
+  const all = P.concat(F), ci = [-Infinity, ...[...new Set(all.map(r=>r.iou))].sort((a,b)=>a-b)], cg = [...[...new Set(all.map(r=>r.grad))].sort((a,b)=>a-b), Infinity];
+  let best = null;
+  for (const ti of ci) for (const tg of cg){
+    const ok = r => r.iou > ti && r.grad < tg, tpr = P.filter(ok).length/P.length, tnr = F.filter(r=>!ok(r)).length/F.length, ba = (tpr+tnr)/2;
+    if (!best || ba > best.ba + 1e-12 || (Math.abs(ba-best.ba) <= 1e-12 && (ti < best.ti || (ti === best.ti && tg > best.tg)))) best = {ti, tg, ba, tpr, tnr};
+  }
+  return best;
+}
+function evalT(t, P, F){ const ok = r => r.iou > t[0] && r.grad < t[1]; return {tpr: P.filter(ok).length/P.length, tnr: F.length ? F.filter(r=>!ok(r)).length/F.length : NaN}; }
+$("bReveal").onclick = () => {
+  const n = Object.keys(S.ratings).length;
+  if (n < S.order.length && !confirm(`${S.order.length - n} registrations are not rated yet. Reveal anyway?`)) return;
+  show("reveal"); drawReveal();
+};
+function drawReveal(){
+  const rated = S.order.filter(id => S.ratings[id]).map(id => Object.assign({lab: S.ratings[id].label}, byId[id]));
+  const P = rated.filter(r=>r.lab==="pass"), F = rated.filter(r=>r.lab==="fail"), U = rated.filter(r=>r.lab==="unsure");
+  const st = D.thresholds[S.key].defaults.start, ch = D.thresholds[S.key].chosen, sg = suggest(P, F);
+  const svg = $("plot"); svg.innerHTML = ""; const W = svg.clientWidth, Hh = svg.clientHeight, m = {l:58,r:14,t:12,b:40};
+  const all = D.records.filter(r => r.key === S.key);
+  const x0 = Math.min(...all.map(r=>r.iou)), x1 = Math.max(...all.map(r=>r.iou)), y0 = Math.min(...all.map(r=>r.grad)), y1 = Math.max(...all.map(r=>r.grad));
+  const px = (x1-x0)*.04, py = (y1-y0)*.05, X = v => m.l + (v-x0+px)/(x1-x0+2*px)*(W-m.l-m.r), Y = v => Hh-m.b - (v-y0+py)/(y1-y0+2*py)*(Hh-m.t-m.b);
+  const el = (n,a) => { const e = document.createElementNS(NS,n); for (const k in a) e.setAttribute(k,a[k]); svg.appendChild(e); return e; };
+  for (let i=0;i<=5;i++){ const v = x0+(x1-x0)*i/5, w = y0+(y1-y0)*i/5;
+    el("line",{x1:X(v),x2:X(v),y1:m.t,y2:Hh-m.b,stroke:"#eee"}); el("text",{x:X(v),y:Hh-m.b+14,"text-anchor":"middle","font-size":11,fill:"#555"}).textContent = v.toFixed(3);
+    el("line",{x1:m.l,x2:W-m.r,y1:Y(w),y2:Y(w),stroke:"#eee"}); el("text",{x:m.l-6,y:Y(w)+4,"text-anchor":"end","font-size":11,fill:"#555"}).textContent = w.toFixed(3); }
+  el("text",{x:(W+m.l)/2,y:Hh-6,"text-anchor":"middle","font-size":12}).textContent = "tissue IoU";
+  el("text",{x:14,y:Hh/2,"text-anchor":"middle","font-size":12,transform:`rotate(-90 14 ${Hh/2})`}).textContent = "grad_p95";
+  all.forEach(r => el("circle",{cx:X(r.iou),cy:Y(r.grad),r:2.2,fill:"#ddd"}));
+  const line = (v, vert, c, d, w) => vert ? el("line",{x1:X(v),x2:X(v),y1:m.t,y2:Hh-m.b,stroke:c,"stroke-dasharray":d,"stroke-width":w}) : el("line",{x1:m.l,x2:W-m.r,y1:Y(v),y2:Y(v),stroke:c,"stroke-dasharray":d,"stroke-width":w});
+  line(st[0], true, "#8c8c8c", "5 4", 1.2); line(st[1], false, "#8c8c8c", "5 4", 1.2);
+  if (sg){ if (isFinite(sg.ti)) line(sg.ti, true, "#6a3d9a", "", 2); if (isFinite(sg.tg)) line(sg.tg, false, "#6a3d9a", "", 2); }
+  U.forEach(r => el("circle",{cx:X(r.iou),cy:Y(r.grad),r:4.5,fill:"#fff",stroke:"#8c8c8c","stroke-width":1.5}));
+  P.forEach(r => el("circle",{cx:X(r.iou),cy:Y(r.grad),r:4.5,fill:"#1b7f3b",stroke:"#fff","stroke-width":1}));
+  F.forEach(r => { const a = X(r.iou), b = Y(r.grad); el("path",{d:`M${a-4.5},${b-4.5}L${a+4.5},${b+4.5}M${a-4.5},${b+4.5}L${a+4.5},${b-4.5}`,stroke:"#b3261e","stroke-width":2.2}); });
+  $("rsum").textContent = `${rated.length} rated by ${S.rater}: ${P.length} pass, ${F.length} fail, ${U.length} unsure`
+    + (D.thresholds[S.key].note ? ` — note: ${D.thresholds[S.key].note}` : "");
+  const f = v => isFinite(v) ? (+v).toFixed(4) : "no cut";
+  const brains = [...new Set(all.map(r=>r.sample))];
+  const minPB = t => Math.min(...brains.map(b => all.filter(r => r.sample===b && r.iou > t[0] && r.grad < t[1]).length));
+  const nAll = t => all.filter(r => r.iou > t[0] && r.grad < t[1]).length;
+  const row = (name, t) => { const e = evalT(t, P, F); return `<tr><td>${name}</td><td>${f(t[0])}</td><td>${f(t[1])}</td><td>${(100*e.tpr).toFixed(0)} %</td><td>${isNaN(e.tnr)?"–":(100*e.tnr).toFixed(0)+" %"}</td><td>${nAll(t)} / ${all.length}</td><td>${minPB(t)}</td></tr>`; };
+  let h = `<table><tr><th>thresholds</th><th>IoU &gt;</th><th>grad_p95 &lt;</th><th>rated-pass kept</th><th>rated-fail removed</th><th>pass in whole sweep</th><th>min per brain</th></tr>`;
+  h += row("starting point (median ± 3·MAD)", st);
+  if (sg) h += row("suggested by your ratings", [sg.ti, sg.tg]);
+  if (ch) h += row("chosen (manuscript)", ch);
+  h += `</table>`;
+  if (!sg) h += `<p class="hint">No thresholds suggested: at least one pass and one fail rating are needed.</p>`;
+  else if (F.length < 5) h += `<p class="hint" style="color:#b3261e">Only ${F.length} registration(s) rated fail: too few for the suggested thresholds to be reliable (a threshold can only be placed where failures were seen). Rate more registrations, e.g. a second batch with a new seed.</p>`;
+  $("rtab").innerHTML = h;
+}
+window.addEventListener("resize", () => { if (!$("reveal").classList.contains("hidden")) drawReveal(); });
+</script></body></html>

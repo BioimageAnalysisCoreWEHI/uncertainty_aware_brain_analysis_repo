@@ -1,0 +1,7 @@
+# Keep Unix line endings in the repository and on checkout: the SLURM/bash scripts run on Linux HPC nodes,
+# where CRLF line endings break them.
+* text=auto eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.png binary
+*.pdf binary

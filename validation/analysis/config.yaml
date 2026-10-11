@@ -1,0 +1,37 @@
+# Validation analysis configuration (all parameters in one place; see validation_report.md)
+paths:
+  amap_python: '<REPO>/validation/amap_python_port'      # the aMAP Python port in this repository
+  amap_outputs: '<IMAGING>\Ishrat\JoM\post_review_analysis\validation_datasets\amap\aMAP_validation_python_outputs'
+  pipeline_results: '<IMAGING>\Ishrat\JoM\post_review_analysis\results'
+  pipeline_config: '<IMAGING>\Ishrat\JoM\post_review_analysis\config\config.yaml'
+  lsfm_root: '<IMAGING>\Ishrat\JoM'
+
+seed: 20260924
+bootstrap_n: 2000
+tie_band: 0.02            # |delta Dice| <= 0.02 counts as a tie (win/tie/loss and benefit/harm classes)
+
+amap:
+  primary_variant: raw
+  primary_hemisphere: registered
+  primary_set: passes_final_qc_top_0p5
+  primary_threshold: 0.5
+  default_run: bend_0p95__grid_m10__smooth_m1p0     # brainreg defaults
+  window_extra_slices: 10   # cache window = raters' stack slab +/- this many 25 um slices
+  # production QC (pipeline config.yaml)
+  iou_threshold: 0.9
+  grad_p95_threshold: 0.058      # fallback only; common.py reads the pipeline config (recalibrated 2026-09-29)
+  ssim_top_fraction: 0.5
+  # sensitivity grids
+  iou_grid: [0.80, 0.85, 0.875, 0.90, 0.925, 0.95]
+  grad_grid: [0.040, 0.045, 0.050, 0.055, 0.058, 0.060, 0.065, 0.070, 1.0]
+  ssim_grid: [0.25, 0.5, 0.75, 1.0]
+  thresholds_fine: [0.01, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0]
+  lobo_ensemble_k: 4        # LOBO "few select parameters" ensemble size (pre-specified)
+  poor_dice: 0.7            # "poor case" definition for the uncertainty-flag AUC
+  gt_free_agree: 0.7        # GT-free tail: run Dice-to-consensus below this
+
+lsfm:
+  thresholds: [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0]
+  default_params: [0.95, -10]
+  iou_grid: [0.85, 0.875, 0.90, 0.925, 0.95]
+  grad_grid: [0.040, 0.045, 0.050, 0.055]

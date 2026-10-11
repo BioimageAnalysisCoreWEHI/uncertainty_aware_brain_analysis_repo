@@ -1,0 +1,1 @@
+python scripts/validation/build_staple_ground_truth.py  --seg-dir validation_datasets/amap/aMAP_validation/data/userSegmentations/userSegmentations --seg-lab-fusion-bin validation_datasets/amap/aMAP_validation/nonMatlab/niftyseg_build/seg-apps/seg_LabFusion --out-dir results/staple_ground_truth --scale 1.0 --overwrite

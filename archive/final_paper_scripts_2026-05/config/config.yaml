@@ -1,0 +1,47 @@
+project:
+  output_dir: "results"
+
+atlas:
+  name: "perens_lsfm_mouse_20um"
+  resolution_um: 20
+  snpc_label: 374
+
+brainreg:
+  version: "1.0.14"
+  grid_spacing: [-2, -3, -5, -10, -30, -50]
+  bending_energy_weight: [0.0, 0.1, 0.3, 0.5, 0.7, 0.9, 0.95, 1.0]
+  smoothing_sigma_floating: [-1.0]
+  output_root: results/brainreg_sweeps
+  orientation: sal
+  voxel_size: [20, 20, 20]
+  affine_n_steps: 3
+  affine_use_n_steps: 2
+  freeform_n_steps: 4
+  freeform_use_n_steps: 4
+
+qc:
+  iou_threshold: 0.9
+  grad_p95_threshold: 0.045
+  ssim_top_fraction: 0.5
+
+roi:
+  bbox_json: "config/midbrain_bbox.json"
+
+consensus:
+  thresholds: [0.05, 0.1, 0.25, 0.5, 0.75, 1.0]
+
+cellpose:
+  diameter: 9
+  channels: [0, 0]
+  flow_threshold: 0.8
+  cellprob_threshold: -3.0
+  stitch_threshold: 0.3
+  counting_mode: "any_overlap"
+
+brainreg_outputs:
+  registered_atlas_names: ["registered_atlas.tiff", "registered_atlas.tif"]
+  downsampled_standard_names: ["downsampled_standard.tiff", "downsampled_standard.tif"]
+  deformation_field_names:
+    - "deformation_field_0.tiff"
+    - "deformation_field_1.tiff"
+    - "deformation_field_2.tiff"

@@ -1,0 +1,16 @@
+# Copy to config/local_paths.yaml (git-ignored) and edit. Environment variables override these:
+#   UAA_IMAGING_ROOT, UAA_SCRATCH, UAA_SCRATCH_ROOT, UAA_HOME
+# Shell (SLURM) scripts read IMAGING_ROOT, SCRATCH, SCRATCH_ROOT and CONDA_ENV from the environment instead.
+
+imaging_root: /data/project          # replaces <IMAGING>      (project / imaging storage)
+scratch: /scratch/users/me           # replaces <SCRATCH>      (your scratch folder: brainreg outputs)
+scratch_root: /scratch               # replaces <SCRATCH_ROOT>
+# home: /home/me                     # replaces <HOME> (defaults to your home folder)
+data_root: /data/uaa_lsfm_deposit    # replaces <DATA>: the downloaded data deposit (Zenodo)
+
+# Tables written on the cluster store cluster paths. Map those prefixes to placeholders so that the same tables can
+# be read on a workstation where the storage is mounted elsewhere (e.g. as network drives on Windows).
+cluster_prefixes:
+  /cluster/project: <IMAGING>
+  /cluster/scratch/users/me: <SCRATCH>
+  /cluster/scratch: <SCRATCH_ROOT>

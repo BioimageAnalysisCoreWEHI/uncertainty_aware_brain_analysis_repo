@@ -1,0 +1,116 @@
+project:
+  output_dir: "results"
+
+atlas:
+  name: "osten_mouse_25um"
+  reference_image: "config/osten_mouse_25um_reference.tif"
+  resolution_um: 25
+  snpc_label: 374
+  additional_labels: [202, 502, 632, 254, 385, 394, 733, 88, 322, 31]
+ 
+
+brainreg:
+  version: "1.0.10"   # as installed in the HPC environment and recorded in the run logs
+  grid_spacing: [-2,-5,-7,-10,-15,-20,-25,-30]
+  bending_energy_weight: [0.1,0.3,0.5,0.7,0.9,0.95,0.99, 1.0]
+  smoothing_sigma_floating: [-1.0]
+  output_root: results/brainreg_sweeps
+  orientation: ipl
+  voxel_size: [12.5, 12.5, 12.5]
+  affine_n_steps: 6
+  affine_use_n_steps: 5
+  freeform_n_steps: 6
+  freeform_use_n_steps: 4
+
+qc:
+  iou_threshold: 0.9
+  grad_p95_threshold: 0.058
+  ssim_top_fraction: 0.5
+
+# ---------------------------------------------------------------------
+# Region-of-interest definitions for local SSIM QC.
+#
+# Each id in region_ids is resolved against region_tree_csv: leaf regions
+# use their own voxel id directly; composite/parent regions (e.g. an area
+# with cortical layers, or a region with sub-nuclei) are automatically
+# expanded to every descendant id, since the atlas only ever paints leaf
+# ids. A separate bbox is derived per region from annotation_image, so
+# regions can be anywhere in the brain and don't need to be adjacent to
+# each other.
+# ---------------------------------------------------------------------
+roi:
+  region_tree_csv: "config/ARA2_annotation_info_avail_regions.csv"
+  annotation_image: "config/osten_mouse_25um_annotation.tif"   # atlas-space label volume, SAME shape/space as atlas.reference_image -- update this path to your actual annotation file
+  bbox_padding_voxels: 5
+  region_ids: [374, 202, 502, 632, 254, 385, 394, 733, 88, 322, 31]
+  save_crop_examples: false            # set true to dump the region crops used for SSIM (for visual sanity-checking)
+  crop_output_dir: "results/qc_tables/region_crop_examples"
+
+  # ---------------------------------------------------------------
+  # Hemisphere splitting.
+  #
+  # OFF for now (split_hemispheres: false): one bbox per region,
+  # covering both sides together, even for large/bilateral regions.
+  # A one-sided registration defect can get averaged out by a good
+  # result on the other side -- keep an eye on the SSIM distributions
+  # once you have real data, and if a region isn't discriminating
+  # well, flip this on.
+  #
+  # ON (split_hemispheres: true): each region's mask is split in half
+  # along lr_axis at midline_index, producing one bbox per side. Also
+  # useful later for a "best of left / best of right" consensus.
+  #
+  # lr_axis: which array axis (0=z, 1=y, 2=x) is medio-lateral in your
+  #   annotation_image. Confirmed from the crops: axis 2 (x) is the
+  #   one that balloons for bilateral cortical regions.
+  # midline_index: null = auto (annotation_image.shape[lr_axis] // 2).
+  # low_side_label / high_side_label: which physical side is "low"
+  #   (index < midline) vs "high" (index >= midline) depends on your
+  #   atlas's orientation -- check by eye if/when you turn this on.
+  # ---------------------------------------------------------------
+  split_hemispheres: false
+  lr_axis: 2
+  midline_index: null
+  low_side_label: "right"
+  high_side_label: "left"
+
+
+consensus:
+  thresholds: [0.01, 0.1, 0.25, 0.5, 0.75, 1.0]
+
+# ---------------------------------------------------------------------
+# Per-region, whole-image (uncropped) probability/consensus maps.
+#
+# For each (sample_id, input_type), stacks every registration that
+# passes QC, builds each region's mask directly against that
+# registration's own full registered_atlas.tiff (already in that
+# sample's native image space -- no cropping or coordinate transform
+# needed), and averages to get a per-voxel probability map, then
+# thresholds it into consensus masks. See build_region_consensus_wholebrain.py.
+# ---------------------------------------------------------------------
+region_consensus:
+  output_dir: "results/region_consensus"
+  global_qc_column: "passes_global_qc"
+  run_sets: ["all"]                # all_registrations + passes_global_qc + passes_final_qc_top_X, per region/side
+  save_individual_masks: true      # saved into EACH gate folder it belongs to (duplicates allowed for now)
+  # Output stays at native resolution (registered_atlas.tiff's own grid,
+  # i.e. atlas.resolution_um) -- no resampling for now.
+
+cellpose:
+  model_type: cyto2
+  #custom_weights: "<IMAGING>//Pradeep/Verena/Grant_Dewson/level1_cropped/cellpose/final_model/CP_epochs500_lr0.1_SGD_True_wd_1e-05"  # or null
+  custom_weights: "<IMAGING>/Ishrat/analysis_of_whole_brain_projects/updating_cellpose_model/final_model/updated_th_model_dense_annotations_with_aug"
+  diameter: 9
+  channels: [0, 0]
+  flow_threshold: 0.8
+  cellprob_threshold: -2.0
+  stitch_threshold: 0.3
+  use_gpu: true
+
+brainreg_outputs:
+  registered_atlas_names: ["registered_atlas.tiff", "registered_atlas.tif"]
+  downsampled_standard_names: ["downsampled_standard.tiff", "downsampled_standard.tif"]
+  deformation_field_names:
+    - "deformation_field_0.tiff"
+    - "deformation_field_1.tiff"
+    - "deformation_field_2.tiff"

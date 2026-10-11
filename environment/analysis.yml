@@ -1,0 +1,18 @@
+# Workstation environment: validation analyses, QC-sensitivity aggregation, figures, data-release builder.
+# Versions are those installed in the environment the analyses ran in (full list: analysis_full_package_list.txt).
+name: uaa_analysis
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12.14
+  - numpy=2.4.6
+  - scipy=1.18.1
+  - pandas=3.0.5
+  - scikit-image=0.26.0
+  - tifffile=2026.9.9
+  - imagecodecs=2026.8.16
+  - dask-image=2026.5.0
+  - matplotlib=3.11.1
+  - pyyaml=6.0.3
+  - zarr=3.3.0
+  - openpyxl=3.1.5
