@@ -5,7 +5,7 @@ authors:
   - family-names: Zaman
     given-names: Ishrat
   # TODO: add co-authors and ORCIDs
-repository-code: "https://github.com/BioimageAnalysisCoreWEHI/uncertainty_aware_brain_analysis"
+repository-code: "https://github.com/BioimageAnalysisCoreWEHI/uncertainty_aware_brain_analysis_repo"
 license: BSD-3-Clause   # TODO: confirm licence with the lab / institute
 preferred-citation:
   type: article

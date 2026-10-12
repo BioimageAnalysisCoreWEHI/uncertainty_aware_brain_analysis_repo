@@ -1,8 +1,7 @@
-"""Pipeline overview chart: (A) the pipeline, HPC vs local steps; (B) how the code evolved; (C) validation branches.
+"""Pipeline overview chart: (A) the pipeline, HPC vs local steps; (B) validation branches.
 
     python docs/make_pipeline_overview.py      -> docs/pipeline_overview.{png,pdf,svg} (600 dpi)
 """
-from datetime import date
 from pathlib import Path
 
 import matplotlib
@@ -74,60 +73,19 @@ def panel_a(ax):
     ax.text(-0.05, 3.55, "A", fontsize=10, fontweight="bold", va="top", ha="right", transform=ax.transData)
 
 
-GENS = [  # (label, start, end, what it added, folder)
-    ("Original manuscript (ad hoc)", date(2025, 8, 8), date(2026, 6, 1),
-     "sweep, QC, SSIM, region extraction, Cellpose counts,\nconsensus and figures as separate scripts",
-     "analysis_scripts/  ->  archive/"),
-    ("Config-driven sweep", date(2026, 5, 22), date(2026, 5, 26),
-     "config.yaml + job table for brainreg and QC metrics", "analysis_scripts/final_paper_scripts"),
-    ("Consensus + cells refactor", date(2026, 5, 22), date(2026, 7, 30),
-     "consensus maps, Cellpose jobs, counting, cell probabilities", "analysis_scripts/testing_scripts/final_paper_scripts"),
-    ("Generic whole-brain pipeline", date(2026, 7, 16), date(2026, 8, 13),
-     "crop spaces, registration sets, parameter masks, final tables", "analysis_of_whole_brain_projects/scripts"),
-    ("Post-review pipeline", date(2026, 8, 24), date(2026, 9, 30),
-     "SLURM arrays for every step, multi-region SSIM,\nwhole-brain region consensus, any atlas", "post_review_analysis/scripts  ->  pipeline/"),
-    ("Validation forks + analyses", date(2026, 9, 1), date(2026, 10, 7),
-     "aMAP and independent-LSFM configs, QC-rule sensitivity,\naMAP Python port, revision figures",
-     "lightsheet_data/, validation_analysis/  ->  validation/"),
-    ("Clean repository", date(2026, 10, 8), date(2026, 10, 20),
-     "one copy of each module, configurable paths, environments", "uncertainty_aware_analysis_code_repo"),
-]
-
-
 def panel_b(ax):
-    t0 = date(2025, 7, 1)
-    days = lambda d: (d - t0).days  # noqa: E731
-    cols = ["0.55", "#9ecae1", "#6baed6", "#4292c6", C_HPC, "#2171b5", "#7B3294"]
-    for i, (lab, a, b, what, folder) in enumerate(GENS):
-        y = len(GENS) - 1 - i
-        ax.barh(y, max(days(b) - days(a), 6), left=days(a), height=0.55, color=cols[i])
-        ax.text(-8, y, lab, ha="right", va="center", fontsize=6.3, fontweight="bold")
-        ax.text(days(b) + 6, y + 0.13, what, va="center", fontsize=5.4, linespacing=1.1)
-        ax.text(days(b) + 6, y - 0.33, folder, va="center", fontsize=5.0, family="Consolas", color="0.35")
-    ticks = [date(2025, m, 1) for m in (8, 10, 12)] + [date(2026, m, 1) for m in (2, 4, 6, 8, 10)]
-    ax.set_xticks([days(t) for t in ticks], [t.strftime("%b %Y") for t in ticks], fontsize=5.8)
-    ax.set_yticks([])
-    ax.set_xlim(-2, days(date(2027, 6, 1)))
-    ax.set_ylim(-0.7, len(GENS) - 0.3)
-    for sp in ("top", "right", "left"):
-        ax.spines[sp].set_visible(False)
-    ax.text(-0.3, 1.02, "B", transform=ax.transAxes, fontsize=10, fontweight="bold", va="bottom")
-    ax.set_title("How the code evolved (file dates)", fontsize=7, loc="left", pad=4)
-
-
-def panel_c(ax):
     ax.set_xlim(0, 10)
     ax.set_ylim(0, 2.3)
     ax.axis("off")
     rows = [("aMAP (serial two-photon,\n6 brains, expert STAPLE\nreference)", "config/datasets/amap",
              "validation/amap_python_port (STAPLE, scoring)\nvalidation/analysis/scripts 01-04, 09-10, 34",
-             "Figs 5-6, S1, S4; Tables S1-S2"),
+             "Fig 4, S2, S7, S9; Table S3"),
             ("Independent LSFM (ScienceDB,\n6 brains, published\nregistration)", "config/datasets/independent_lsfm",
              "validation/independent_lsfm 07a-19",
-             "Fig 7, S6"),
+             "Fig 5, S3; Table S4"),
             ("QC-rule sensitivity\n(all three datasets)", "pipeline/qc_threshold_sensitivity",
              "validation/analysis/scripts 12, 14-17, 23, 30-33\n+ qcsens_worker.py (HPC array)",
-             "Fig 8, S3, S5; Table S3")]
+             "Fig 6, S4-S6, S8; Table S5")]
     for i, (d, cfg, code, figs) in enumerate(rows):
         y = 1.95 - i * 0.78
         ax.text(0.0, y, d, fontsize=6.2, va="center", fontweight="bold", linespacing=1.15)
@@ -136,18 +94,14 @@ def panel_c(ax):
         box(ax, 4.85, y - 0.3, 3.35, 0.6, "analysis", "", C_LOC, code)
         arrow(ax, 8.25, y, 8.55, y)
         ax.text(8.6, y, figs, fontsize=6, va="center")
-    ax.text(-0.05, 2.35, "C", fontsize=10, fontweight="bold", va="top", ha="right")
+    ax.text(-0.05, 2.35, "B", fontsize=10, fontweight="bold", va="top", ha="right")
 
 
 def main():
-    fig = plt.figure(figsize=(7.2, 8.6))
-    gs = fig.add_gridspec(3, 1, height_ratios=[1.55, 1.25, 1.0], hspace=0.22)
+    fig = plt.figure(figsize=(7.2, 5.9))
+    gs = fig.add_gridspec(2, 1, height_ratios=[1.55, 1.0], hspace=0.12)
     panel_a(fig.add_subplot(gs[0]))
-    axb = fig.add_subplot(gs[1])
-    pos = axb.get_position()
-    axb.set_position([pos.x0 + 0.2, pos.y0, pos.width - 0.2, pos.height])
-    panel_b(axb)
-    panel_c(fig.add_subplot(gs[2]))
+    panel_b(fig.add_subplot(gs[1]))
     for ext in ("png", "pdf", "svg"):
         fig.savefig(OUT / f"pipeline_overview.{ext}", dpi=600, bbox_inches="tight", facecolor="white")
     print("saved", OUT / "pipeline_overview.png")

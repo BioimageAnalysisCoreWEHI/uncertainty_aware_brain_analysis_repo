@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="478.511552pt" height="491.184pt" viewBox="0 0 478.511552 491.184" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="441.073025pt" height="341.496pt" viewBox="0 0 441.073025 341.496" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-08T15:11:03.342184</dc:date>
+    <dc:date>2026-10-12T13:16:25.707702</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,789 +21,555 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 491.184 
-L 478.511552 491.184 
-L 478.511552 0 
-L 0 0 
+   <path d="M 0 341.496 
+L 441.073025 341.496 
+L 441.073025 -0 
+L 0 -0 
 z
 " style="fill: #ffffff"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 20.290722 85.499882 
-L 109.465687 85.499882 
-Q 110.647334 85.499882 110.647334 84.086526 
-L 110.647334 22.181566 
-Q 110.647334 20.768211 109.465687 20.768211 
-L 20.290722 20.768211 
-Q 19.109075 20.768211 19.109075 22.181566 
-L 19.109075 84.086526 
-Q 19.109075 85.499882 20.290722 85.499882 
+    <path d="M 20.290722 93.79432 
+L 109.465687 93.79432 
+Q 110.647334 93.79432 110.647334 92.231245 
+L 110.647334 23.768588 
+Q 110.647334 22.205514 109.465687 22.205514 
+L 20.290722 22.205514 
+Q 19.109075 22.205514 19.109075 23.768588 
+L 19.109075 92.231245 
+Q 19.109075 93.79432 20.290722 93.79432 
 z
-" clip-path="url(#p4aa6342535)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pd5ea208567)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
-    <path d="M 121.518487 85.499882 
-L 210.693451 85.499882 
-Q 211.875099 85.499882 211.875099 84.086526 
-L 211.875099 22.181566 
-Q 211.875099 20.768211 210.693451 20.768211 
-L 121.518487 20.768211 
-Q 120.33684 20.768211 120.33684 22.181566 
-L 120.33684 84.086526 
-Q 120.33684 85.499882 121.518487 85.499882 
+    <path d="M 121.518487 93.79432 
+L 210.693451 93.79432 
+Q 211.875099 93.79432 211.875099 92.231245 
+L 211.875099 23.768588 
+Q 211.875099 22.205514 210.693451 22.205514 
+L 121.518487 22.205514 
+Q 120.33684 22.205514 120.33684 23.768588 
+L 120.33684 92.231245 
+Q 120.33684 93.79432 121.518487 93.79432 
 z
-" clip-path="url(#p4aa6342535)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pd5ea208567)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
-    <path d="M 222.746251 85.499882 
-L 311.921216 85.499882 
-Q 313.102863 85.499882 313.102863 84.086526 
-L 313.102863 22.181566 
-Q 313.102863 20.768211 311.921216 20.768211 
-L 222.746251 20.768211 
-Q 221.564604 20.768211 221.564604 22.181566 
-L 221.564604 84.086526 
-Q 221.564604 85.499882 222.746251 85.499882 
+    <path d="M 222.746251 93.79432 
+L 311.921216 93.79432 
+Q 313.102863 93.79432 313.102863 92.231245 
+L 313.102863 23.768588 
+Q 313.102863 22.205514 311.921216 22.205514 
+L 222.746251 22.205514 
+Q 221.564604 22.205514 221.564604 23.768588 
+L 221.564604 92.231245 
+Q 221.564604 93.79432 222.746251 93.79432 
 z
-" clip-path="url(#p4aa6342535)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pd5ea208567)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
-    <path d="M 323.974016 85.499882 
-L 413.148981 85.499882 
-Q 414.330628 85.499882 414.330628 84.086526 
-L 414.330628 22.181566 
-Q 414.330628 20.768211 413.148981 20.768211 
-L 323.974016 20.768211 
-Q 322.792369 20.768211 322.792369 22.181566 
-L 322.792369 84.086526 
-Q 322.792369 85.499882 323.974016 85.499882 
+    <path d="M 323.974016 93.79432 
+L 413.148981 93.79432 
+Q 414.330628 93.79432 414.330628 92.231245 
+L 414.330628 23.768588 
+Q 414.330628 22.205514 413.148981 22.205514 
+L 323.974016 22.205514 
+Q 322.792369 22.205514 322.792369 23.768588 
+L 322.792369 92.231245 
+Q 322.792369 93.79432 323.974016 93.79432 
 z
-" clip-path="url(#p4aa6342535)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pd5ea208567)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
-    <path d="M 20.290722 162.292184 
-L 109.465687 162.292184 
-Q 110.647334 162.292184 110.647334 160.878829 
-L 110.647334 98.973868 
-Q 110.647334 97.560513 109.465687 97.560513 
-L 20.290722 97.560513 
-Q 19.109075 97.560513 19.109075 98.973868 
-L 19.109075 160.878829 
-Q 19.109075 162.292184 20.290722 162.292184 
+    <path d="M 20.290722 178.72136 
+L 109.465687 178.72136 
+Q 110.647334 178.72136 110.647334 177.158286 
+L 110.647334 108.695629 
+Q 110.647334 107.132554 109.465687 107.132554 
+L 20.290722 107.132554 
+Q 19.109075 107.132554 19.109075 108.695629 
+L 19.109075 177.158286 
+Q 19.109075 178.72136 20.290722 178.72136 
 z
-" clip-path="url(#p4aa6342535)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pd5ea208567)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_7">
-    <path d="M 121.518487 162.292184 
-L 210.693451 162.292184 
-Q 211.875099 162.292184 211.875099 160.878829 
-L 211.875099 98.973868 
-Q 211.875099 97.560513 210.693451 97.560513 
-L 121.518487 97.560513 
-Q 120.33684 97.560513 120.33684 98.973868 
-L 120.33684 160.878829 
-Q 120.33684 162.292184 121.518487 162.292184 
+    <path d="M 121.518487 178.72136 
+L 210.693451 178.72136 
+Q 211.875099 178.72136 211.875099 177.158286 
+L 211.875099 108.695629 
+Q 211.875099 107.132554 210.693451 107.132554 
+L 121.518487 107.132554 
+Q 120.33684 107.132554 120.33684 108.695629 
+L 120.33684 177.158286 
+Q 120.33684 178.72136 121.518487 178.72136 
 z
-" clip-path="url(#p4aa6342535)" style="fill: #f6e3ee; stroke: #cc79a7; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pd5ea208567)" style="fill: #f6e3ee; stroke: #cc79a7; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_8">
-    <path d="M 222.746251 162.292184 
-L 311.921216 162.292184 
-Q 313.102863 162.292184 313.102863 160.878829 
-L 313.102863 98.973868 
-Q 313.102863 97.560513 311.921216 97.560513 
-L 222.746251 97.560513 
-Q 221.564604 97.560513 221.564604 98.973868 
-L 221.564604 160.878829 
-Q 221.564604 162.292184 222.746251 162.292184 
+    <path d="M 222.746251 178.72136 
+L 311.921216 178.72136 
+Q 313.102863 178.72136 313.102863 177.158286 
+L 313.102863 108.695629 
+Q 313.102863 107.132554 311.921216 107.132554 
+L 222.746251 107.132554 
+Q 221.564604 107.132554 221.564604 108.695629 
+L 221.564604 177.158286 
+Q 221.564604 178.72136 222.746251 178.72136 
 z
-" clip-path="url(#p4aa6342535)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pd5ea208567)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
-    <path d="M 323.974016 162.292184 
-L 413.148981 162.292184 
-Q 414.330628 162.292184 414.330628 160.878829 
-L 414.330628 98.973868 
-Q 414.330628 97.560513 413.148981 97.560513 
-L 323.974016 97.560513 
-Q 322.792369 97.560513 322.792369 98.973868 
-L 322.792369 160.878829 
-Q 322.792369 162.292184 323.974016 162.292184 
+    <path d="M 323.974016 178.72136 
+L 413.148981 178.72136 
+Q 414.330628 178.72136 414.330628 177.158286 
+L 414.330628 108.695629 
+Q 414.330628 107.132554 413.148981 107.132554 
+L 323.974016 107.132554 
+Q 322.792369 107.132554 322.792369 108.695629 
+L 322.792369 177.158286 
+Q 322.792369 178.72136 323.974016 178.72136 
 z
-" clip-path="url(#p4aa6342535)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pd5ea208567)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_10">
-    <path d="M 31.398204 15.444572 
-L 38.488087 15.444572 
-Q 38.685028 15.444572 38.685028 15.209013 
-L 38.685028 10.968947 
-Q 38.685028 10.733388 38.488087 10.733388 
-L 31.398204 10.733388 
-Q 31.201263 10.733388 31.201263 10.968947 
-L 31.201263 15.209013 
-Q 31.201263 15.444572 31.398204 15.444572 
+    <path d="M 31.398204 16.317934 
+L 38.488087 16.317934 
+Q 38.685028 16.317934 38.685028 16.057421 
+L 38.685028 11.368198 
+Q 38.685028 11.107686 38.488087 11.107686 
+L 31.398204 11.107686 
+Q 31.201263 11.107686 31.201263 11.368198 
+L 31.201263 16.057421 
+Q 31.201263 16.317934 31.398204 16.317934 
 z
-" clip-path="url(#p4aa6342535)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-linejoin: miter"/>
+" clip-path="url(#pd5ea208567)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-linejoin: miter"/>
    </g>
    <g id="patch_11">
-    <path d="M 133.807616 15.444572 
-L 140.897499 15.444572 
-Q 141.09444 15.444572 141.09444 15.209013 
-L 141.09444 10.968947 
-Q 141.09444 10.733388 140.897499 10.733388 
-L 133.807616 10.733388 
-Q 133.610675 10.733388 133.610675 10.968947 
-L 133.610675 15.209013 
-Q 133.610675 15.444572 133.807616 15.444572 
+    <path d="M 133.807616 16.317934 
+L 140.897499 16.317934 
+Q 141.09444 16.317934 141.09444 16.057421 
+L 141.09444 11.368198 
+Q 141.09444 11.107686 140.897499 11.107686 
+L 133.807616 11.107686 
+Q 133.610675 11.107686 133.610675 11.368198 
+L 133.610675 16.057421 
+Q 133.610675 16.317934 133.807616 16.317934 
 z
-" clip-path="url(#p4aa6342535)" style="fill: #f6e3ee; stroke: #cc79a7; stroke-linejoin: miter"/>
+" clip-path="url(#pd5ea208567)" style="fill: #f6e3ee; stroke: #cc79a7; stroke-linejoin: miter"/>
    </g>
    <g id="patch_12">
-    <path d="M 236.217028 15.444572 
-L 243.30691 15.444572 
-Q 243.503851 15.444572 243.503851 15.209013 
-L 243.503851 10.968947 
-Q 243.503851 10.733388 243.30691 10.733388 
-L 236.217028 10.733388 
-Q 236.020087 10.733388 236.020087 10.968947 
-L 236.020087 15.209013 
-Q 236.020087 15.444572 236.217028 15.444572 
+    <path d="M 236.217028 16.317934 
+L 243.30691 16.317934 
+Q 243.503851 16.317934 243.503851 16.057421 
+L 243.503851 11.368198 
+Q 243.503851 11.107686 243.30691 11.107686 
+L 236.217028 11.107686 
+Q 236.020087 11.107686 236.020087 11.368198 
+L 236.020087 16.057421 
+Q 236.020087 16.317934 236.217028 16.317934 
 z
-" clip-path="url(#p4aa6342535)" style="fill: #fcefd6; stroke: #e69f00; stroke-linejoin: miter"/>
+" clip-path="url(#pd5ea208567)" style="fill: #fcefd6; stroke: #e69f00; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="20.763381" y="28.785336" transform="rotate(-0 20.763381 28.785336)">0  Set-up</text>
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="20.763381" y="30.532059" transform="rotate(-0 20.763381 30.532059)">0  Set-up</text>
    </g>
    <g id="text_2">
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 35.607517)">downsample AF/TH to 20 um, tissue</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 42.22603)">mask, optional preprocessing,</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 48.946074)">samples.csv per dataset</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 38.102836)">downsample AF/TH to 20 um, tissue</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 44.721348)">mask, optional preprocessing,</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 51.441392)">samples.csv per dataset</text>
    </g>
    <g id="text_3">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(20.763381 75.283666)">pipeline/00_setup/*</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(20.763381 80.911916)">config/datasets/&lt;dataset&gt;/</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(20.763381 83.268685)">pipeline/00_setup/*</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(20.763381 88.896935)">config/datasets/&lt;dataset&gt;/</text>
    </g>
    <g id="text_4">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="121.991146" y="28.785336" transform="rotate(-0 121.991146 28.785336)">1-2  Registration sweep</text>
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="121.991146" y="30.532059" transform="rotate(-0 121.991146 30.532059)">1-2  Registration sweep</text>
    </g>
    <g id="text_5">
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(121.991146 35.574119)">brainreg (NiftyReg) for every bending</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(121.991146 42.22603)">energy x grid spacing; one job per</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(121.991146 48.94741)">registration (48 per brain and input)</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(121.991146 38.069437)">brainreg (NiftyReg) for every bending</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(121.991146 44.721348)">energy x grid spacing; one job per</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(121.991146 51.442728)">registration (48 per brain and input)</text>
    </g>
    <g id="text_6">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(121.991146 69.631916)">01_make_brainreg_jobs.py</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(121.991146 75.271916)">02_submit_brainreg_sweep.sh</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(121.991146 80.911916)">run_brainreg_array.sh</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(121.991146 77.616935)">01_make_brainreg_jobs.py</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(121.991146 83.256935)">02_submit_brainreg_sweep.sh</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(121.991146 88.896935)">run_brainreg_array.sh</text>
    </g>
    <g id="text_7">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="223.21891" y="28.785336" transform="rotate(-0 223.21891 28.785336)">3  QC metrics</text>
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="223.21891" y="30.532059" transform="rotate(-0 223.21891 30.532059)">3  QC metrics</text>
    </g>
    <g id="text_8">
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(223.21891 35.539384)">tissue-atlas IoU, Jacobian-gradient</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(223.21891 42.260764)">p95 (grad_p95), local SSIM per region;</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(223.21891 48.912675)">one job per registration</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(223.21891 38.034703)">tissue-atlas IoU, Jacobian-gradient</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(223.21891 44.756083)">p95 (grad_p95), local SSIM per region;</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(223.21891 51.407994)">one job per registration</text>
    </g>
    <g id="text_9">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(223.21891 69.631916)">03_submit_qc_jobs.sh</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(223.21891 75.263104)">run_qc_array.sh</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(223.21891 80.911916)">run_qc_single.py</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(223.21891 77.616935)">03_submit_qc_jobs.sh</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(223.21891 83.248122)">run_qc_array.sh</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(223.21891 88.896935)">run_qc_single.py</text>
    </g>
    <g id="text_10">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="324.446675" y="28.785336" transform="rotate(-0 324.446675 28.785336)">4  Combine + select</text>
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="324.446675" y="30.532059" transform="rotate(-0 324.446675 30.532059)">4  Combine + select</text>
    </g>
    <g id="text_11">
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(324.446675 35.5759)">global QC (IoU &gt; t, grad_p95 &lt; t),</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(324.446675 42.260764)">then keep the top 50 % by SSIM</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(324.446675 48.94741)">(passes_final_qc)</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(324.446675 38.071218)">global QC (IoU &gt; t, grad_p95 &lt; t),</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(324.446675 44.756083)">then keep the top 50 % by SSIM</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(324.446675 51.442728)">(passes_final_qc)</text>
    </g>
    <g id="text_12">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(324.446675 75.27669)">04_combine_qc_csvs.py</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(324.446675 80.91669)">04b_plot_qc_calibration.py</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(324.446675 83.261708)">04_combine_qc_csvs.py</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(324.446675 88.901708)">04b_plot_qc_calibration.py</text>
    </g>
    <g id="text_13">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="20.763381" y="105.577639" transform="rotate(-0 20.763381 105.577639)">5  Region consensus</text>
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="20.763381" y="115.459099" transform="rotate(-0 20.763381 115.459099)">5  Region consensus</text>
    </g>
    <g id="text_14">
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 112.366421)">inclusion frequency of each voxel</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 119.018333)">over retained registrations;</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 125.909822)">consensus at thresholds 0.01-1.0;</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 132.391624)">one job per sample x input x region</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 122.996477)">inclusion frequency of each voxel</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 129.648389)">over retained registrations;</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 136.539878)">consensus at thresholds 0.01-1.0;</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(20.763381 143.02168)">one job per sample x input x region</text>
    </g>
    <g id="text_15">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(20.763381 146.424219)">05_build_region_consensus_jobs.py</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(20.763381 152.064219)">run_region_consensus_array.sh</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(20.763381 157.704219)">build_region_consensus_wholebrain.py</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(20.763381 162.543975)">05_build_region_consensus_jobs.py</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(20.763381 168.183975)">run_region_consensus_array.sh</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(20.763381 173.823975)">build_region_consensus_wholebrain.py</text>
    </g>
    <g id="text_16">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="121.991146" y="105.577639" transform="rotate(-0 121.991146 105.577639)">6  Cell detection</text>
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="121.991146" y="115.459099" transform="rotate(-0 121.991146 115.459099)">6  Cell detection</text>
    </g>
    <g id="text_17">
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(121.991146 112.366421)">Cellpose (custom TH model) on the</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(121.991146 119.086465)">full-resolution midbrain crop</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(121.991146 122.996477)">Cellpose (custom TH model) on the</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(121.991146 129.716521)">full-resolution midbrain crop</text>
    </g>
    <g id="text_18">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(121.991146 146.424219)">cells/06_make_cellpose_jobs.py</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(121.991146 152.055406)">cells/run_cellpose_array.sh</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(121.991146 157.695406)">cells/run_cellpose_one_crop.py</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(121.991146 162.543975)">cells/06_make_cellpose_jobs.py</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(121.991146 168.175163)">cells/run_cellpose_array.sh</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(121.991146 173.815163)">cells/run_cellpose_one_crop.py</text>
    </g>
    <g id="text_19">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="223.21891" y="105.577639" transform="rotate(-0 223.21891 105.577639)">7-8  Counting</text>
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="223.21891" y="115.459099" transform="rotate(-0 223.21891 115.459099)">7-8  Counting</text>
    </g>
    <g id="text_20">
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(223.21891 112.366421)">overlap rule (a cell counts if any</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(223.21891 119.053067)">voxel is in the mask); per-cell inclusion</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(223.21891 125.739712)">frequency over the registrations</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(223.21891 122.996477)">overlap rule (a cell counts if any</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(223.21891 129.683123)">voxel is in the mask); per-cell inclusion</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(223.21891 136.369768)">frequency over the registrations</text>
    </g>
    <g id="text_21">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(223.21891 146.428992)">cells/07_count_cells_in_masks.py</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(223.21891 152.064219)">cells/08_compute_cell_region_</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(223.21891 157.708992)">  probabilities.py</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(223.21891 162.548748)">cells/07_count_cells_in_masks.py</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(223.21891 168.183975)">cells/08_compute_cell_region_</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(223.21891 173.828748)">  probabilities.py</text>
    </g>
    <g id="text_22">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="324.446675" y="105.577639" transform="rotate(-0 324.446675 105.577639)">Analyses + figures</text>
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="324.446675" y="115.459099" transform="rotate(-0 324.446675 115.459099)">Analyses + figures</text>
    </g>
    <g id="text_23">
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(324.446675 112.368203)">count stability, QC-rule sensitivity,</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(324.446675 119.053067)">validation (aMAP, independent LSFM),</text>
-    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(324.446675 125.739712)">manuscript figures</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(324.446675 122.998259)">count stability, QC-rule sensitivity,</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(324.446675 129.683123)">validation (aMAP, independent LSFM),</text>
+    <text style="font-size: 5.7px; font-family: 'Arial'" transform="translate(324.446675 136.369768)">manuscript figures</text>
    </g>
    <g id="text_24">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(324.446675 152.068992)">validation/analysis/scripts/*</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(324.446675 157.715969)">validation/independent_lsfm/*</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(324.446675 168.188748)">validation/analysis/scripts/*</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(324.446675 173.835725)">validation/independent_lsfm/*</text>
    </g>
    <g id="patch_13">
-    <path d="M 112.176494 53.134046 
-Q 115.491854 53.134046 117.800984 53.134046 
+    <path d="M 112.176494 57.999917 
+Q 115.491854 57.999917 117.800984 57.999917 
 " style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-    <path d="M 114.600984 51.534046 
-L 117.800984 53.134046 
-L 114.600984 54.734046 
+    <path d="M 114.600984 56.399917 
+L 117.800984 57.999917 
+L 114.600984 59.599917 
 z
 " style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
    </g>
    <g id="patch_14">
-    <path d="M 213.404258 53.134046 
-Q 216.719619 53.134046 219.028749 53.134046 
+    <path d="M 213.404258 57.999917 
+Q 216.719619 57.999917 219.028749 57.999917 
 " style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-    <path d="M 215.828749 51.534046 
-L 219.028749 53.134046 
-L 215.828749 54.734046 
+    <path d="M 215.828749 56.399917 
+L 219.028749 57.999917 
+L 215.828749 59.599917 
 z
 " style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
    </g>
    <g id="patch_15">
-    <path d="M 314.632023 53.134046 
-Q 317.947384 53.134046 320.256513 53.134046 
+    <path d="M 314.632023 57.999917 
+Q 317.947384 57.999917 320.256513 57.999917 
 " style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-    <path d="M 317.056513 51.534046 
-L 320.256513 53.134046 
-L 317.056513 54.734046 
+    <path d="M 317.056513 56.399917 
+L 320.256513 57.999917 
+L 317.056513 59.599917 
 z
 " style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
    </g>
    <g id="patch_16">
-    <path d="M 366.564314 85.021293 
-Q 216.722491 91.530083 67.885951 97.995206 
+    <path d="M 366.564314 93.265033 
+Q 216.717888 100.463531 67.876533 107.613747 
 " style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-    <path d="M 71.152371 99.454828 
-L 67.885951 97.995206 
-L 71.013501 96.257843 
+    <path d="M 71.149621 109.058355 
+L 67.876533 107.613747 
+L 70.996073 105.862041 
 z
 " style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
    </g>
    <g id="patch_17">
-    <path d="M 112.176494 129.926349 
-Q 115.491854 129.926349 117.800984 129.926349 
+    <path d="M 112.176494 142.926957 
+Q 115.491854 142.926957 117.800984 142.926957 
 " style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-    <path d="M 114.600984 128.326349 
-L 117.800984 129.926349 
-L 114.600984 131.526349 
+    <path d="M 114.600984 141.326957 
+L 117.800984 142.926957 
+L 114.600984 144.526957 
 z
 " style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
    </g>
    <g id="patch_18">
-    <path d="M 213.404258 129.926349 
-Q 216.719619 129.926349 219.028749 129.926349 
+    <path d="M 213.404258 142.926957 
+Q 216.719619 142.926957 219.028749 142.926957 
 " style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-    <path d="M 215.828749 128.326349 
-L 219.028749 129.926349 
-L 215.828749 131.526349 
+    <path d="M 215.828749 141.326957 
+L 219.028749 142.926957 
+L 215.828749 144.526957 
 z
 " style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
    </g>
    <g id="patch_19">
-    <path d="M 314.632023 129.926349 
-Q 317.947384 129.926349 320.256513 129.926349 
+    <path d="M 314.632023 142.926957 
+Q 317.947384 142.926957 320.256513 142.926957 
 " style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-    <path d="M 317.056513 128.326349 
-L 320.256513 129.926349 
-L 317.056513 131.526349 
+    <path d="M 317.056513 141.326957 
+L 320.256513 142.926957 
+L 317.056513 144.526957 
 z
 " style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
    </g>
    <g id="text_25">
-    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: middle; fill: #4c4c4c" x="216.52291" y="173.033684" transform="rotate(-0 216.52291 173.033684)">HPC SLURM arrays: 234 logged registrations took 92 h of compute but 3.0 h of wall time (31x)</text>
+    <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: middle; fill: #4c4c4c" x="216.52291" y="190.600725" transform="rotate(-0 216.52291 190.600725)">HPC SLURM arrays: 234 logged registrations took 92 h of compute but 3.0 h of wall time (31x)</text>
    </g>
    <g id="text_26">
-    <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start" x="41.245263" y="14.641656" transform="rotate(-0 41.245263 14.641656)">HPC (SLURM array, CPU)</text>
+    <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start" x="41.245263" y="15.265486" transform="rotate(-0 41.245263 15.265486)">HPC (SLURM array, CPU)</text>
    </g>
    <g id="text_27">
-    <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start" x="143.654675" y="14.641656" transform="rotate(-0 143.654675 14.641656)">HPC (GPU) or local</text>
+    <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start" x="143.654675" y="15.265486" transform="rotate(-0 143.654675 15.265486)">HPC (GPU) or local</text>
    </g>
    <g id="text_28">
-    <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start" x="246.064087" y="14.641715" transform="rotate(-0 246.064087 14.641715)">local workstation</text>
+    <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start" x="246.064087" y="15.265544" transform="rotate(-0 246.064087 15.265544)">local workstation</text>
    </g>
    <g id="text_29">
-    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial'; text-anchor: end" x="17.612322" y="16.835866" transform="rotate(-0 17.612322 16.835866)">A</text>
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial'; text-anchor: end" x="17.612322" y="17.085397" transform="rotate(-0 17.612322 17.085397)">A</text>
    </g>
   </g>
   <g id="axes_2">
    <g id="patch_20">
-    <path d="M 120.110675 344.070947 
-L 418.190675 344.070947 
-L 418.190675 207.294632 
-L 120.110675 207.294632 
+    <path d="M 111.567443 248.114262 
+L 196.499507 248.114262 
+Q 197.704787 248.114262 197.704787 246.535842 
+L 197.704787 216.861544 
+Q 197.704787 215.283123 196.499507 215.283123 
+L 111.567443 215.283123 
+Q 110.362163 215.283123 110.362163 216.861544 
+L 110.362163 246.535842 
+Q 110.362163 248.114262 111.567443 248.114262 
 z
-" style="fill: #ffffff"/>
+" clip-path="url(#pd4d64647c3)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_21">
-    <path d="M 137.09529 225.315835 
-L 263.20606 225.315835 
-L 263.20606 215.150028 
-L 137.09529 215.150028 
+    <path d="M 212.007443 248.114262 
+L 345.150707 248.114262 
+Q 346.355987 248.114262 346.355987 246.535842 
+L 346.355987 216.861544 
+Q 346.355987 215.283123 345.150707 215.283123 
+L 212.007443 215.283123 
+Q 210.802163 215.283123 210.802163 216.861544 
+L 210.802163 246.535842 
+Q 210.802163 248.114262 212.007443 248.114262 
 z
-" clip-path="url(#p12b19cd97c)" style="fill: #8c8c8c"/>
+" clip-path="url(#pd4d64647c3)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_22">
-    <path d="M 258.959906 243.799121 
-L 261.507598 243.799121 
-L 261.507598 233.633314 
-L 258.959906 233.633314 
+    <path d="M 111.567443 289.153185 
+L 196.499507 289.153185 
+Q 197.704787 289.153185 197.704787 287.574765 
+L 197.704787 257.900467 
+Q 197.704787 256.322046 196.499507 256.322046 
+L 111.567443 256.322046 
+Q 110.362163 256.322046 110.362163 257.900467 
+L 110.362163 287.574765 
+Q 110.362163 289.153185 111.567443 289.153185 
 z
-" clip-path="url(#p12b19cd97c)" style="fill: #9ecae1"/>
+" clip-path="url(#pd4d64647c3)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_23">
-    <path d="M 258.959906 262.282407 
-L 288.258367 262.282407 
-L 288.258367 252.1166 
-L 258.959906 252.1166 
+    <path d="M 212.007443 289.153185 
+L 345.150707 289.153185 
+Q 346.355987 289.153185 346.355987 287.574765 
+L 346.355987 257.900467 
+Q 346.355987 256.322046 345.150707 256.322046 
+L 212.007443 256.322046 
+Q 210.802163 256.322046 210.802163 257.900467 
+L 210.802163 287.574765 
+Q 210.802163 289.153185 212.007443 289.153185 
 z
-" clip-path="url(#p12b19cd97c)" style="fill: #6baed6"/>
+" clip-path="url(#pd4d64647c3)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_24">
-    <path d="M 282.313752 280.765693 
-L 294.202983 280.765693 
-L 294.202983 270.599886 
-L 282.313752 270.599886 
+    <path d="M 111.567443 330.192108 
+L 196.499507 330.192108 
+Q 197.704787 330.192108 197.704787 328.613688 
+L 197.704787 298.939389 
+Q 197.704787 297.360969 196.499507 297.360969 
+L 111.567443 297.360969 
+Q 110.362163 297.360969 110.362163 298.939389 
+L 110.362163 328.613688 
+Q 110.362163 330.192108 111.567443 330.192108 
 z
-" clip-path="url(#p12b19cd97c)" style="fill: #4292c6"/>
+" clip-path="url(#pd4d64647c3)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-width: 1.1; stroke-linejoin: miter"/>
    </g>
    <g id="patch_25">
-    <path d="M 298.873752 299.248979 
-L 314.584521 299.248979 
-L 314.584521 289.083172 
-L 298.873752 289.083172 
+    <path d="M 212.007443 330.192108 
+L 345.150707 330.192108 
+Q 346.355987 330.192108 346.355987 328.613688 
+L 346.355987 298.939389 
+Q 346.355987 297.360969 345.150707 297.360969 
+L 212.007443 297.360969 
+Q 210.802163 297.360969 210.802163 298.939389 
+L 210.802163 328.613688 
+Q 210.802163 330.192108 212.007443 330.192108 
 z
-" clip-path="url(#p12b19cd97c)" style="fill: #56b4e9"/>
+" clip-path="url(#pd4d64647c3)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_30">
+    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 226.611605)">aMAP (serial two-photon,</text>
+    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 233.34363)">6 brains, expert STAPLE</text>
+    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 239.994281)">reference)</text>
+   </g>
+   <g id="text_31">
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="112.049555" y="223.641383" transform="rotate(-0 112.049555 223.641383)">pipeline 01-05</text>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 4.7px; font-family: 'Consolas'; text-anchor: start; fill: #404040" x="112.049555" y="243.185162" transform="rotate(-0 112.049555 243.185162)">config/datasets/amap</text>
    </g>
    <g id="patch_26">
-    <path d="M 302.270675 317.732265 
-L 317.556829 317.732265 
-L 317.556829 307.566458 
-L 302.270675 307.566458 
+    <path d="M 201.227524 231.698693 
+Q 204.2514 231.698693 206.269046 231.698693 
+" style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
+    <path d="M 203.069046 230.098693 
+L 206.269046 231.698693 
+L 203.069046 233.298693 
 z
-" clip-path="url(#p12b19cd97c)" style="fill: #2171b5"/>
+" style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
+   </g>
+   <g id="text_33">
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="212.489555" y="223.641383" transform="rotate(-0 212.489555 223.641383)">analysis</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(212.489555 237.6186)">validation/amap_python_port (STAPLE, scoring)</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(212.489555 243.189936)">validation/analysis/scripts 01-04, 09-10, 34</text>
    </g>
    <g id="patch_27">
-    <path d="M 317.981444 336.215551 
-L 323.076829 336.215551 
-L 323.076829 326.049744 
-L 317.981444 326.049744 
+    <path d="M 349.880686 231.698693 
+Q 353.908984 231.698693 356.931051 231.698693 
+" style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
+    <path d="M 353.731051 230.098693 
+L 356.931051 231.698693 
+L 353.731051 233.298693 
 z
-" clip-path="url(#p12b19cd97c)" style="fill: #7b3294"/>
+" style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
    </g>
-   <g id="matplotlib.axis_1">
-    <g id="xtick_1">
-     <g id="line2d_1">
-      <defs>
-       <path id="mf691024933" d="M 0 0 
-L 0 3.5 
-" style="stroke: #000000; stroke-width: 0.8"/>
-      </defs>
-      <g>
-       <use xlink:href="#mf691024933" x="134.122983" y="344.070947" style="stroke: #000000; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_30">
-      <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: middle" x="134.122983" y="355.293506" transform="rotate(-0 134.122983 355.293506)">Aug 2025</text>
-     </g>
-    </g>
-    <g id="xtick_2">
-     <g id="line2d_2">
-      <g>
-       <use xlink:href="#mf691024933" x="160.024521" y="344.070947" style="stroke: #000000; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_31">
-      <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: middle" x="160.024521" y="355.296791" transform="rotate(-0 160.024521 355.296791)">Oct 2025</text>
-     </g>
-    </g>
-    <g id="xtick_3">
-     <g id="line2d_3">
-      <g>
-       <use xlink:href="#mf691024933" x="185.92606" y="344.070947" style="stroke: #000000; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_32">
-      <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: middle" x="185.92606" y="355.293506" transform="rotate(-0 185.92606 355.293506)">Dec 2025</text>
-     </g>
-    </g>
-    <g id="xtick_4">
-     <g id="line2d_4">
-      <g>
-       <use xlink:href="#mf691024933" x="212.252213" y="344.070947" style="stroke: #000000; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_33">
-      <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: middle" x="212.252213" y="355.293506" transform="rotate(-0 212.252213 355.293506)">Feb 2026</text>
-     </g>
-    </g>
-    <g id="xtick_5">
-     <g id="line2d_5">
-      <g>
-       <use xlink:href="#mf691024933" x="237.304521" y="344.070947" style="stroke: #000000; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_34">
-      <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: middle" x="237.304521" y="355.293506" transform="rotate(-0 237.304521 355.293506)">Apr 2026</text>
-     </g>
-    </g>
-    <g id="xtick_6">
-     <g id="line2d_6">
-      <g>
-       <use xlink:href="#mf691024933" x="263.20606" y="344.070947" style="stroke: #000000; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_35">
-      <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: middle" x="263.20606" y="355.293506" transform="rotate(-0 263.20606 355.293506)">Jun 2026</text>
-     </g>
-    </g>
-    <g id="xtick_7">
-     <g id="line2d_7">
-      <g>
-       <use xlink:href="#mf691024933" x="289.107598" y="344.070947" style="stroke: #000000; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_36">
-      <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: middle" x="289.107598" y="355.293506" transform="rotate(-0 289.107598 355.293506)">Aug 2026</text>
-     </g>
-    </g>
-    <g id="xtick_8">
-     <g id="line2d_8">
-      <g>
-       <use xlink:href="#mf691024933" x="315.009137" y="344.070947" style="stroke: #000000; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_37">
-      <text style="font-size: 5.8px; font-family: 'Arial'; text-anchor: middle" x="315.009137" y="355.296791" transform="rotate(-0 315.009137 355.296791)">Oct 2026</text>
-     </g>
-    </g>
+   <g id="text_35">
+    <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start" x="361.944275" y="233.251368" transform="rotate(-0 361.944275 233.251368)">Fig 4, S2, S7, S9; Table S3</text>
    </g>
-   <g id="matplotlib.axis_2"/>
-   <g id="patch_28">
-    <path d="M 120.110675 344.070947 
-L 418.190675 344.070947 
-" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   <g id="text_36">
+    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 267.650528)">Independent LSFM (ScienceDB,</text>
+    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 274.353975)">6 brains, published</text>
+    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 281.033203)">registration)</text>
+   </g>
+   <g id="text_37">
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="112.049555" y="264.680306" transform="rotate(-0 112.049555 264.680306)">pipeline 01-05</text>
    </g>
    <g id="text_38">
-    <text style="font-weight: 700; font-size: 6.3px; font-family: 'Arial'; text-anchor: end" x="117.562983" y="221.863241" transform="rotate(-0 117.562983 221.863241)">Original manuscript (ad hoc)</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; text-anchor: start; fill: #404040" x="112.049555" y="284.224085" transform="rotate(-0 112.049555 284.224085)">config/datasets/independent_lsfm</text>
+   </g>
+   <g id="patch_28">
+    <path d="M 201.227524 272.737616 
+Q 204.2514 272.737616 206.269046 272.737616 
+" style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
+    <path d="M 203.069046 271.137616 
+L 206.269046 272.737616 
+L 203.069046 274.337616 
+z
+" style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
    </g>
    <g id="text_39">
-    <text style="font-size: 5.4px; font-family: 'Arial'" transform="translate(265.753752 216.441767)">sweep, QC, SSIM, region extraction, Cellpose counts,</text>
-    <text style="font-size: 5.4px; font-family: 'Arial'" transform="translate(265.753752 222.01463)">consensus and figures as separate scripts</text>
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="212.489555" y="264.680306" transform="rotate(-0 212.489555 264.680306)">analysis</text>
    </g>
    <g id="text_40">
-    <text style="font-size: 5px; font-family: 'Consolas'; text-anchor: start; fill: #595959" x="265.753752" y="227.545795" transform="rotate(-0 265.753752 227.545795)">analysis_scripts/  -&gt;  archive/</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; text-anchor: start; fill: #404040" x="212.489555" y="284.235835" transform="rotate(-0 212.489555 284.235835)">validation/independent_lsfm 07a-19</text>
+   </g>
+   <g id="patch_29">
+    <path d="M 349.880686 272.737616 
+Q 353.908984 272.737616 356.931051 272.737616 
+" style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
+    <path d="M 353.731051 271.137616 
+L 356.931051 272.737616 
+L 353.731051 274.337616 
+z
+" style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
    </g>
    <g id="text_41">
-    <text style="font-weight: 700; font-size: 6.3px; font-family: 'Arial'; text-anchor: end" x="117.562983" y="240.346527" transform="rotate(-0 117.562983 240.346527)">Config-driven sweep</text>
+    <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start" x="361.944275" y="274.290291" transform="rotate(-0 361.944275 274.290291)">Fig 5, S3; Table S4</text>
    </g>
    <g id="text_42">
-    <text style="font-size: 5.4px; font-family: 'Arial'; text-anchor: start" x="263.20606" y="237.712328" transform="rotate(-0 263.20606 237.712328)">config.yaml + job table for brainreg and QC metrics</text>
+    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 312.03512)">QC-rule sensitivity</text>
+    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 318.726457)">(all three datasets)</text>
    </g>
    <g id="text_43">
-    <text style="font-size: 5px; font-family: 'Consolas'; text-anchor: start; fill: #595959" x="263.20606" y="246.029081" transform="rotate(-0 263.20606 246.029081)">analysis_scripts/final_paper_scripts</text>
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="112.049555" y="305.719229" transform="rotate(-0 112.049555 305.719229)">pipeline 01-05</text>
    </g>
    <g id="text_44">
-    <text style="font-weight: 700; font-size: 6.3px; font-family: 'Arial'; text-anchor: end" x="117.562983" y="258.829875" transform="rotate(-0 117.562983 258.829875)">Consensus + cells refactor</text>
-   </g>
-   <g id="text_45">
-    <text style="font-size: 5.4px; font-family: 'Arial'; text-anchor: start" x="290.80606" y="256.193926" transform="rotate(-0 290.80606 256.193926)">consensus maps, Cellpose jobs, counting, cell probabilities</text>
-   </g>
-   <g id="text_46">
-    <text style="font-size: 5px; font-family: 'Consolas'; text-anchor: start; fill: #595959" x="290.80606" y="264.512367" transform="rotate(-0 290.80606 264.512367)">analysis_scripts/testing_scripts/final_paper_scripts</text>
-   </g>
-   <g id="text_47">
-    <text style="font-weight: 700; font-size: 6.3px; font-family: 'Arial'; text-anchor: end" x="117.562983" y="277.313161" transform="rotate(-0 117.562983 277.313161)">Generic whole-brain pipeline</text>
-   </g>
-   <g id="text_48">
-    <text style="font-size: 5.4px; font-family: 'Arial'; text-anchor: start" x="296.750675" y="274.677212" transform="rotate(-0 296.750675 274.677212)">crop spaces, registration sets, parameter masks, final tables</text>
-   </g>
-   <g id="text_49">
-    <text style="font-size: 5px; font-family: 'Consolas'; text-anchor: start; fill: #595959" x="296.750675" y="282.995653" transform="rotate(-0 296.750675 282.995653)">analysis_of_whole_brain_projects/scripts</text>
-   </g>
-   <g id="text_50">
-    <text style="font-weight: 700; font-size: 6.3px; font-family: 'Arial'; text-anchor: end" x="117.562983" y="295.796446" transform="rotate(-0 117.562983 295.796446)">Post-review pipeline</text>
-   </g>
-   <g id="text_51">
-    <text style="font-size: 5.4px; font-family: 'Arial'" transform="translate(317.132213 290.373223)">SLURM arrays for every step, multi-region SSIM,</text>
-    <text style="font-size: 5.4px; font-family: 'Arial'" transform="translate(317.132213 295.914867)">whole-brain region consensus, any atlas</text>
-   </g>
-   <g id="text_52">
-    <text style="font-size: 5px; font-family: 'Consolas'; text-anchor: start; fill: #595959" x="317.132213" y="301.478939" transform="rotate(-0 317.132213 301.478939)">post_review_analysis/scripts  -&gt;  pipeline/</text>
-   </g>
-   <g id="text_53">
-    <text style="font-weight: 700; font-size: 6.3px; font-family: 'Arial'; text-anchor: end" x="117.562983" y="314.279671" transform="rotate(-0 117.562983 314.279671)">Validation forks + analyses</text>
-   </g>
-   <g id="text_54">
-    <text style="font-size: 5.4px; font-family: 'Arial'" transform="translate(320.104521 308.858196)">aMAP and independent-LSFM configs, QC-rule sensitivity,</text>
-    <text style="font-size: 5.4px; font-family: 'Arial'" transform="translate(320.104521 314.43106)">aMAP Python port, revision figures</text>
-   </g>
-   <g id="text_55">
-    <text style="font-size: 5px; font-family: 'Consolas'; text-anchor: start; fill: #595959" x="320.104521" y="319.962225" transform="rotate(-0 320.104521 319.962225)">lightsheet_data/, validation_analysis/  -&gt;  validation/</text>
-   </g>
-   <g id="text_56">
-    <text style="font-weight: 700; font-size: 6.3px; font-family: 'Arial'; text-anchor: end" x="117.562983" y="332.762957" transform="rotate(-0 117.562983 332.762957)">Clean repository</text>
-   </g>
-   <g id="text_57">
-    <text style="font-size: 5.4px; font-family: 'Arial'; text-anchor: start" x="325.624521" y="330.12707" transform="rotate(-0 325.624521 330.12707)">one copy of each module, configurable paths, environments</text>
-   </g>
-   <g id="text_58">
-    <text style="font-size: 5px; font-family: 'Consolas'; text-anchor: start; fill: #595959" x="325.624521" y="338.44551" transform="rotate(-0 325.624521 338.44551)">uncertainty_aware_analysis_code_repo</text>
-   </g>
-   <g id="text_59">
-    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial'; text-anchor: start" x="30.686675" y="202.454613" transform="rotate(-0 30.686675 202.454613)">B</text>
-   </g>
-   <g id="text_60">
-    <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start" x="120.110675" y="203.294632" transform="rotate(-0 120.110675 203.294632)">How the code evolved (file dates)</text>
-   </g>
-  </g>
-  <g id="axes_3">
-   <g id="patch_29">
-    <path d="M 111.567443 406.057181 
-L 196.499507 406.057181 
-Q 197.704787 406.057181 197.704787 404.62995 
-L 197.704787 377.798005 
-Q 197.704787 376.370773 196.499507 376.370773 
-L 111.567443 376.370773 
-Q 110.362163 376.370773 110.362163 377.798005 
-L 110.362163 404.62995 
-Q 110.362163 406.057181 111.567443 406.057181 
-z
-" clip-path="url(#pc20ec9619c)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-width: 1.1; stroke-linejoin: miter"/>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; text-anchor: start; fill: #404040" x="112.049555" y="325.267782" transform="rotate(-0 112.049555 325.267782)">pipeline/qc_threshold_sensitivity</text>
    </g>
    <g id="patch_30">
-    <path d="M 212.007443 406.057181 
-L 345.150707 406.057181 
-Q 346.355987 406.057181 346.355987 404.62995 
-L 346.355987 377.798005 
-Q 346.355987 376.370773 345.150707 376.370773 
-L 212.007443 376.370773 
-Q 210.802163 376.370773 210.802163 377.798005 
-L 210.802163 404.62995 
-Q 210.802163 406.057181 212.007443 406.057181 
+    <path d="M 201.227524 313.776539 
+Q 204.2514 313.776539 206.269046 313.776539 
+" style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
+    <path d="M 203.069046 312.176539 
+L 206.269046 313.776539 
+L 203.069046 315.376539 
 z
-" clip-path="url(#pc20ec9619c)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
+" style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
+   </g>
+   <g id="text_45">
+    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="212.489555" y="305.719229" transform="rotate(-0 212.489555 305.719229)">analysis</text>
+   </g>
+   <g id="text_46">
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(212.489555 319.627782)">validation/analysis/scripts 12, 14-17, 23, 30-33</text>
+    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(212.489555 325.336446)">+ qcsens_worker.py (HPC array)</text>
    </g>
    <g id="patch_31">
-    <path d="M 111.567443 443.16519 
-L 196.499507 443.16519 
-Q 197.704787 443.16519 197.704787 441.737959 
-L 197.704787 414.906014 
-Q 197.704787 413.478783 196.499507 413.478783 
-L 111.567443 413.478783 
-Q 110.362163 413.478783 110.362163 414.906014 
-L 110.362163 441.737959 
-Q 110.362163 443.16519 111.567443 443.16519 
-z
-" clip-path="url(#pc20ec9619c)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-width: 1.1; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_32">
-    <path d="M 212.007443 443.16519 
-L 345.150707 443.16519 
-Q 346.355987 443.16519 346.355987 441.737959 
-L 346.355987 414.906014 
-Q 346.355987 413.478783 345.150707 413.478783 
-L 212.007443 413.478783 
-Q 210.802163 413.478783 210.802163 414.906014 
-L 210.802163 441.737959 
-Q 210.802163 443.16519 212.007443 443.16519 
-z
-" clip-path="url(#pc20ec9619c)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_33">
-    <path d="M 111.567443 480.273199 
-L 196.499507 480.273199 
-Q 197.704787 480.273199 197.704787 478.845968 
-L 197.704787 452.014023 
-Q 197.704787 450.586792 196.499507 450.586792 
-L 111.567443 450.586792 
-Q 110.362163 450.586792 110.362163 452.014023 
-L 110.362163 478.845968 
-Q 110.362163 480.273199 111.567443 480.273199 
-z
-" clip-path="url(#pc20ec9619c)" style="fill: #e3f2fb; stroke: #56b4e9; stroke-width: 1.1; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_34">
-    <path d="M 212.007443 480.273199 
-L 345.150707 480.273199 
-Q 346.355987 480.273199 346.355987 478.845968 
-L 346.355987 452.014023 
-Q 346.355987 450.586792 345.150707 450.586792 
-L 212.007443 450.586792 
-Q 210.802163 450.586792 210.802163 452.014023 
-L 210.802163 478.845968 
-Q 210.802163 480.273199 212.007443 480.273199 
-z
-" clip-path="url(#pc20ec9619c)" style="fill: #fcefd6; stroke: #e69f00; stroke-width: 1.1; stroke-linejoin: miter"/>
-   </g>
-   <g id="text_61">
-    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 386.126889)">aMAP (serial two-photon,</text>
-    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 392.858915)">6 brains, expert STAPLE</text>
-    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 399.509565)">reference)</text>
-   </g>
-   <g id="text_62">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="112.049555" y="384.416576" transform="rotate(-0 112.049555 384.416576)">pipeline 01-05</text>
-   </g>
-   <g id="text_63">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; text-anchor: start; fill: #404040" x="112.049555" y="401.440539" transform="rotate(-0 112.049555 401.440539)">config/datasets/amap</text>
-   </g>
-   <g id="patch_35">
-    <path d="M 201.227524 391.213977 
-Q 204.2514 391.213977 206.269046 391.213977 
+    <path d="M 349.880686 313.776539 
+Q 353.908984 313.776539 356.931051 313.776539 
 " style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-    <path d="M 203.069046 389.613977 
-L 206.269046 391.213977 
-L 203.069046 392.813977 
+    <path d="M 353.731051 312.176539 
+L 356.931051 313.776539 
+L 353.731051 315.376539 
 z
 " style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
    </g>
-   <g id="text_64">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="212.489555" y="384.416576" transform="rotate(-0 212.489555 384.416576)">analysis</text>
+   <g id="text_47">
+    <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start" x="361.944275" y="315.329214" transform="rotate(-0 361.944275 315.329214)">Fig 6, S4-S6, S8; Table S5</text>
    </g>
-   <g id="text_65">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(212.489555 395.873976)">validation/amap_python_port (STAPLE, scoring)</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(212.489555 401.445312)">validation/analysis/scripts 01-04, 09-10, 34</text>
-   </g>
-   <g id="patch_36">
-    <path d="M 349.880686 391.213977 
-Q 353.908984 391.213977 356.931051 391.213977 
-" style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-    <path d="M 353.731051 389.613977 
-L 356.931051 391.213977 
-L 353.731051 392.813977 
-z
-" style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-   </g>
-   <g id="text_66">
-    <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start" x="361.944275" y="392.766653" transform="rotate(-0 361.944275 392.766653)">Figs 5-6, S1, S4; Tables S1-S2</text>
-   </g>
-   <g id="text_67">
-    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 423.234898)">Independent LSFM (ScienceDB,</text>
-    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 429.938346)">6 brains, published</text>
-    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 436.617574)">registration)</text>
-   </g>
-   <g id="text_68">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="112.049555" y="421.524585" transform="rotate(-0 112.049555 421.524585)">pipeline 01-05</text>
-   </g>
-   <g id="text_69">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; text-anchor: start; fill: #404040" x="112.049555" y="438.548548" transform="rotate(-0 112.049555 438.548548)">config/datasets/independent_lsfm</text>
-   </g>
-   <g id="patch_37">
-    <path d="M 201.227524 428.321986 
-Q 204.2514 428.321986 206.269046 428.321986 
-" style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-    <path d="M 203.069046 426.721986 
-L 206.269046 428.321986 
-L 203.069046 429.921986 
-z
-" style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-   </g>
-   <g id="text_70">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="212.489555" y="421.524585" transform="rotate(-0 212.489555 421.524585)">analysis</text>
-   </g>
-   <g id="text_71">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; text-anchor: start; fill: #404040" x="212.489555" y="438.560298" transform="rotate(-0 212.489555 438.560298)">validation/independent_lsfm 07a-19</text>
-   </g>
-   <g id="patch_38">
-    <path d="M 349.880686 428.321986 
-Q 353.908984 428.321986 356.931051 428.321986 
-" style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-    <path d="M 353.731051 426.721986 
-L 356.931051 428.321986 
-L 353.731051 429.921986 
-z
-" style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-   </g>
-   <g id="text_72">
-    <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start" x="361.944275" y="429.874662" transform="rotate(-0 361.944275 429.874662)">Fig 7, S6</text>
-   </g>
-   <g id="text_73">
-    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 463.688576)">QC-rule sensitivity</text>
-    <text style="font-weight: 700; font-size: 6.2px; font-family: 'Arial'" transform="translate(16.430675 470.379914)">(all three datasets)</text>
-   </g>
-   <g id="text_74">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="112.049555" y="458.632594" transform="rotate(-0 112.049555 458.632594)">pipeline 01-05</text>
-   </g>
-   <g id="text_75">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; text-anchor: start; fill: #404040" x="112.049555" y="475.66133" transform="rotate(-0 112.049555 475.66133)">pipeline/qc_threshold_sensitivity</text>
-   </g>
-   <g id="patch_39">
-    <path d="M 201.227524 465.429995 
-Q 204.2514 465.429995 206.269046 465.429995 
-" style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-    <path d="M 203.069046 463.829995 
-L 206.269046 465.429995 
-L 203.069046 467.029995 
-z
-" style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-   </g>
-   <g id="text_76">
-    <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start" x="212.489555" y="458.632594" transform="rotate(-0 212.489555 458.632594)">analysis</text>
-   </g>
-   <g id="text_77">
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(212.489555 470.02133)">validation/analysis/scripts 12, 14-17, 23, 30-33</text>
-    <text style="font-size: 4.7px; font-family: 'Consolas'; fill: #404040" transform="translate(212.489555 475.729994)">+ qcsens_worker.py (HPC array)</text>
-   </g>
-   <g id="patch_40">
-    <path d="M 349.880686 465.429995 
-Q 353.908984 465.429995 356.931051 465.429995 
-" style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-    <path d="M 353.731051 463.829995 
-L 356.931051 465.429995 
-L 353.731051 467.029995 
-z
-" style="fill: #595959; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
-   </g>
-   <g id="text_78">
-    <text style="font-size: 6px; font-family: 'Arial'; text-anchor: start" x="361.944275" y="466.982671" transform="rotate(-0 361.944275 466.982671)">Fig 8, S3, S5; Table S3</text>
-   </g>
-   <g id="text_79">
-    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial'; text-anchor: end" x="14.421875" y="379.464502" transform="rotate(-0 14.421875 379.464502)">C</text>
+   <g id="text_48">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial'; text-anchor: end" x="14.421875" y="217.933365" transform="rotate(-0 14.421875 217.933365)">B</text>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="p4aa6342535">
-   <rect x="16.430675" y="7.2" width="401.76" height="169.602632"/>
+  <clipPath id="pd5ea208567">
+   <rect x="16.430675" y="7.2" width="401.76" height="187.568923"/>
   </clipPath>
-  <clipPath id="p12b19cd97c">
-   <rect x="120.110675" y="207.294632" width="298.08" height="136.776316"/>
-  </clipPath>
-  <clipPath id="pc20ec9619c">
-   <rect x="16.430675" y="374.562947" width="401.76" height="109.421053"/>
+  <clipPath id="pd4d64647c3">
+   <rect x="16.430675" y="213.283791" width="401.76" height="121.012209"/>
   </clipPath>
  </defs>
 </svg>

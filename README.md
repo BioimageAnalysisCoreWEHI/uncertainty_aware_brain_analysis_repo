@@ -22,9 +22,8 @@ Cells are then counted in the consensus region. Each cell keeps the fraction of 
 | `validation/analysis/` | All validation and revision analyses (aMAP, original LSFM, QC-rule sensitivity) and manuscript figures. |
 | `validation/independent_lsfm/` | Comparison with the published registrations of the independent LSFM dataset. ("gt" in file names = the published, automated registration; the registration image of this single-colour dataset is the marker channel.) |
 | `figures/` | The scripts for the final manuscript figures and supplementary figures (Figs. 2–6, S1–S3, S5, S6), the supplementary tables (`make_supplementary_tables.py`) and the Supplementary Information document (`make_docx.py`). |
-| `tools/` | Data deposit. To rebuild it from the pipeline outputs, run `build_data_release.py` (intermediate assembly), then `restructure_release_v2.py` (published layout: per brain, numbered pipeline steps, coronal 20 µm images, essential tables). `verify_release.py` checks the deposit end to end against the pipeline outputs (vote cache, analysis tables). |
-| `archive/` | The original-manuscript scripts that produced the published counts, kept unchanged apart from paths, plus the first config-driven version. Not needed to run the pipeline. |
-| `docs/` | Pipeline chart, figure-to-script map, HPC notes, script history. |
+| `archive/` | The original-manuscript scripts that produced the published counts, kept unchanged apart from paths. Not needed to run the pipeline. |
+| `docs/` | Pipeline chart, figure-to-script map, HPC notes. |
 | `environment/` | Conda environments: `brainreg_hpc.yml` (HPC) and `analysis.yml` (workstation), with full package lists. |
 
 ## Pipeline steps
@@ -59,14 +58,14 @@ See `docs/running_on_hpc.md` for the order of commands.
 **Tests:** `python -m unittest discover -s tests` and, for the aMAP port, `python -m unittest discover -s tests -t .` inside `validation/amap_python_port` (the aMAP port tests need `AMAP_VALIDATION_ROOT`).
 
 ## Reproducing the manuscript
-- **Data:** the registration-level data for the five LSFM brains are deposited at <Zenodo DOI>; set `UAA_DATA_ROOT` to the downloaded folder.
+- **Data:** the registration-level data for the five LSFM brains are deposited at Zenodo (https://doi.org/10.5281/zenodo.23275914); set `UAA_DATA_ROOT` to the downloaded folder.
 - **Public datasets:** the aMAP validation dataset and the ScienceDB VTA projectome are public and are cited in the manuscript.
 - **Figures and tables:** `docs/figure_to_script.md` lists the script that makes each figure and table.
 
 ## Notes
 - **brainreg version.** All registrations used brainreg 1.0.10 (NiftyReg backend), as recorded in the run logs; the configs state this version.
 - **Cellpose model.** The counts in the manuscript used the custom model `CP_epochs500_lr0.1_SGD_True_wd_1e-05` (Cellpose 2.x), which is included in the data deposit.
-- **Two code generations.** The original-manuscript counts were produced by the scripts in `archive/original_manuscript_scripts`. The post-review analyses and validations use `pipeline/` and `validation/`. `docs/script_history.md` explains how the two relate.
+- **Two code generations.** The original-manuscript counts were produced by the scripts in `archive/original_manuscript_scripts`. The post-review analyses and validations use `pipeline/` and `validation/`.
 
 ## Licence and citation
 - **Code:** see `LICENSE`.
