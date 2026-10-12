@@ -78,6 +78,19 @@ def load_deformation_fields(folder: Path, names: list[str]) -> tuple[np.ndarray,
 
 
 def compute_deformation_metrics(d0: np.ndarray, d1: np.ndarray, d2: np.ndarray) -> dict:
+    """Deformation-gradient metrics of a brainreg registration.
+
+    brainreg's deformation_field_0/1/2.tiff hold, for every voxel of the sample image, its position in atlas space in
+    mm (coordinates, not displacements). grad_mag is the voxel-wise Frobenius norm of the spatial gradient of these
+    fields, i.e. voxel size (mm) x the Frobenius norm of the Jacobian matrix of the sample-to-atlas mapping.
+    grad_p95 (its 95th percentile) is the deformation metric used by global QC. Because it scales with the voxel size
+    and with the overall scale difference between brain and atlas, as well as with local warping, its thresholds are
+    dataset-specific.
+
+    The jac_* values are kept only so that existing QC tables can be reproduced. They are NOT Jacobian determinants
+    of the mapping: they use det(I + grad(field)), which assumes displacement fields. They are not used by QC and
+    should not be interpreted.
+    """
     g0 = np.gradient(d0)
     g1 = np.gradient(d1)
     g2 = np.gradient(d2)
@@ -88,6 +101,7 @@ def compute_deformation_metrics(d0: np.ndarray, d1: np.ndarray, d2: np.ndarray) 
         g2[0] ** 2 + g2[1] ** 2 + g2[2] ** 2
     )
 
+    # not a valid Jacobian determinant for brainreg's coordinate fields (see docstring); unused by QC
     dux_dx, dux_dy, dux_dz = np.gradient(d0)
     duy_dx, duy_dy, duy_dz = np.gradient(d1)
     duz_dx, duz_dy, duz_dz = np.gradient(d2)
@@ -229,7 +243,7 @@ def main():
             result["qc_error_overlap"] = "missing registered atlas or tissue mask"
 
         # -------------------------
-        # Deformation/Jacobian QC
+        # Deformation-gradient QC (grad_p95)
         # -------------------------
         deformation_fields = load_deformation_fields(save_dir, deformation_names)
 

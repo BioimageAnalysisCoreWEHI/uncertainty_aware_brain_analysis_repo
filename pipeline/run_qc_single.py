@@ -186,7 +186,18 @@ def compute_deformation_metrics(
     d2: np.ndarray,
 ) -> dict:
     """
-    Calculate deformation-gradient and Jacobian metrics.
+    Calculate deformation-gradient metrics.
+
+    brainreg's deformation_field_0/1/2.tiff hold, for every voxel of the sample image, its position in atlas space in
+    mm (coordinates, not displacements). grad_mag is the voxel-wise Frobenius norm of the spatial gradient of these
+    fields, i.e. voxel size (mm) x the Frobenius norm of the Jacobian matrix of the sample-to-atlas mapping.
+    grad_p95 (its 95th percentile) is the deformation metric used by global QC. Because it scales with the voxel size
+    and with the overall scale difference between brain and atlas, as well as with local warping, its thresholds are
+    dataset-specific.
+
+    The jac_* values are kept only so that existing QC tables can be reproduced. They are NOT Jacobian determinants
+    of the mapping: they use det(I + grad(field)), which assumes displacement fields. They are not used by QC and
+    should not be interpreted.
 
     Each deformation-field gradient is calculated only once.
     """
@@ -207,6 +218,7 @@ def compute_deformation_metrics(
         + duz_dz ** 2
     )
 
+    # not a valid Jacobian determinant for brainreg's coordinate fields (see docstring); unused by QC
     J11 = 1 + dux_dx
     J12 = dux_dy
     J13 = dux_dz
@@ -559,7 +571,7 @@ def main():
         )
 
     # -----------------------------------------------------------------
-    # Deformation/Jacobian QC
+    # Deformation-gradient QC (grad_p95)
     # -----------------------------------------------------------------
 
     deformation_fields = load_deformation_fields(

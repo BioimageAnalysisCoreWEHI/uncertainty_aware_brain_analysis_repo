@@ -65,6 +65,7 @@ See `docs/running_on_hpc.md` for the order of commands.
 ## Notes
 - **brainreg version.** All registrations used brainreg 1.0.10 (NiftyReg backend), as recorded in the run logs; the configs state this version.
 - **Cellpose model.** The counts in the manuscript used the custom model `CP_epochs500_lr0.1_SGD_True_wd_1e-05` (Cellpose 2.x), which is included in the data deposit.
+- **The deformation metric (grad_p95).** brainreg's deformation fields hold atlas coordinates in mm, not displacements. grad_p95 is the 95th percentile of the voxel-wise gradient magnitude of these fields, i.e. voxel size × the Frobenius norm of the Jacobian matrix of the sample-to-atlas mapping. It reflects local warping but also scales with voxel size and with the overall scale difference between brain and atlas, so its thresholds are set per dataset. The `jac_*` columns written by the QC scripts (and by `archive/original_manuscript_scripts/qc_jacobian_metric.py`, where this metric is labelled "Jacobian gradient") assume displacement fields and are not valid Jacobian determinants; they are not used by QC.
 - **Two code generations.** The original-manuscript counts were produced by the scripts in `archive/original_manuscript_scripts`. The post-review analyses and validations use `pipeline/` and `validation/`.
 
 ## Licence and citation

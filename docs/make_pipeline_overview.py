@@ -45,7 +45,7 @@ def panel_a(ax):
     box(ax, xs[1], top, W, H, "1-2  Registration sweep", "brainreg (NiftyReg) for every bending\nenergy x grid "
         "spacing; one job per\nregistration (48 per brain and input)", C_HPC,
         "01_make_brainreg_jobs.py\n02_submit_brainreg_sweep.sh\nrun_brainreg_array.sh")
-    box(ax, xs[2], top, W, H, "3  QC metrics", "tissue-atlas IoU, Jacobian-gradient\np95 (grad_p95), local SSIM per "
+    box(ax, xs[2], top, W, H, "3  QC metrics", "tissue-atlas IoU, deformation-gradient\np95 (grad_p95), local SSIM per "
         "region;\none job per registration", C_HPC, "03_submit_qc_jobs.sh\nrun_qc_array.sh\nrun_qc_single.py")
     box(ax, xs[3], top, W, H, "4  Combine + select", "global QC (IoU > t, grad_p95 < t),\nthen keep the top 50 % by "
         "SSIM\n(passes_final_qc)", C_LOC, "04_combine_qc_csvs.py\n04b_plot_qc_calibration.py")
